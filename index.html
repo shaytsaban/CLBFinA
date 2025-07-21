@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance A - College of Law and Business</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb;
+            color: #34495e;
+            line-height: 1.7;
+        }
+        .navbar {
+            background-color: #ffffff !important;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
+            padding: 1rem 0;
+            transition: background-color 0.3s ease;
+        }
+        .navbar.scrolled {
+            background-color: #f8f9fa !important;
+        }
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.6rem;
+            color: #27ae60;
+        }
+        .nav-link {
+            color: #7f8c8d !important;
+            font-weight: 500;
+            padding: 0.6rem 1.2rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #27ae60 !important;
+            transform: translateY(-3px);
+        }
+        .hero {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            color: white;
+            padding: 120px 0 60px; /* Increased top padding to 120px for better spacing */
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom-left-radius: 50% 20px;
+            border-bottom-right-radius: 50% 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 350px; /* Increased min-height for better vertical centering */
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 100%);
+            animation: pulse 10s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .hero .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 25px;
+            opacity: 0.95;
+        }
+        .section-header {
+            font-weight: 600;
+            color: #27ae60;
+            border-bottom: 2px solid #27ae60;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            font-size: 1.7rem;
+        }
+        .card {
+            border: none;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+            border-radius: 20px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            background-color: #ffffff;
+            padding: 1.8rem;
+        }
+        .card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.14);
+        }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+        iframe {
+            width: 100%;
+            height: 220px;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.1);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        iframe:hover {
+            transform: scale(1.04);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        .btn-primary {
+            background-color: #27ae60;
+            border: none;
+            padding: 10px 25px;
+            font-weight: 500;
+            border-radius: 10px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-size: 1rem;
+        }
+        .btn-primary:hover {
+            background-color: #219d55;
+            transform: translateY(-3px);
+        }
+        .btn-primary i {
+            margin-right: 10px;
+        }
+        .placeholder {
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+        }
+        footer {
+            background-color: #f9fafb;
+            color: #7f8c8d;
+            padding: 40px 0;
+            margin-top: 70px;
+            border-top: 1px solid #ecf0f1;
+        }
+        footer p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .hero {
+                padding: 80px 0 40px;
+                min-height: 250px;
+            }
+        }
+    </style>
+    <!-- React CDNs -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <!-- AOS for animations -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        function Navbar() {
+            React.useEffect(() => {
+                const handleScroll = () => {
+                    const navbar = document.querySelector('.navbar');
+                    if (window.scrollY > 50) {
+                        navbar.classList.add('scrolled');
+                    } else {
+                        navbar.classList.remove('scrolled');
+                    }
+                };
+                window.addEventListener('scroll', handleScroll);
+                return () => window.removeEventListener('scroll', handleScroll);
+            }, []);
+
+            const scrollToSection = (id) => {
+                const element = document.getElementById(id);
+                window.scrollTo({
+                    top: element.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            };
+
+            return (
+                <nav className="navbar navbar-expand-lg fixed-top">
+                    <div className="container">
+                        <a className="navbar-brand" href="#">Finance A</a>
+                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span className="navbar-toggler-icon"></span>
+                        </button>
+                        <div className="collapse navbar-collapse" id="navbarNav">
+                            <ul className="navbar-nav ms-auto">
+                                <li className="nav-item"><a className="nav-link" onClick={() => scrollToSection('description')}>Description</a></li>
+                                <li className="nav-item"><a className="nav-link" onClick={() => scrollToSection('lecturer')}>Lecturer</a></li>
+                                <li className="nav-item"><a className="nav-link" onClick={() => scrollToSection('materials')}>Materials</a></li>
+                                <li className="nav-item"><a className="nav-link" onClick={() => scrollToSection('videos')}>Recordings</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            );
+        }
+
+        function Hero() {
+            return (
+                <header className="hero">
+                    <div className="container">
+                        <h1 data-aos="fade-down">Finance A</h1>
+                        <p data-aos="fade-up" data-aos-delay="200">Discover the core principles of finance at the College of Law and Business. Gain insights that blend law, business, and strategic financial thinking.</p>
+                    </div>
+                </header>
+            );
+        }
+
+        function Section({ id, title, children }) {
+            return (
+                <section id={id} className="mb-5" data-aos="fade-up">
+                    <div className="card">
+                        <h2 className="section-header">{title}</h2>
+                        {children}
+                    </div>
+                </section>
+            );
+        }
+
+        function VideosSection() {
+            return (
+                <section id="videos" data-aos="fade-up">
+                    <h2 className="section-header">Lecture Recordings</h2>
+                    <p data-aos="zoom-in" data-aos-delay="100">Recordings of lectures will be embedded below and updated each night following the session. Check back regularly for the latest videos.</p>
+                    <div className="video-grid">
+                        <div className="placeholder" data-aos="flip-left" data-aos-delay="200">
+                            <i className="fas fa-video fa-3x mb-3" style={{color: '#27ae60'}}></i>
+                            <p>No videos available yet. Updates coming soon!</p>
+                        </div>
+                    </div>
+                </section>
+            );
+        }
+
+        function Footer() {
+            return (
+                <footer className="text-center">
+                    <p>© 2025 Finance A - College of Law and Business. All rights reserved.</p>
+                </footer>
+            );
+        }
+
+        function App() {
+            React.useEffect(() => {
+                AOS.init({
+                    duration: 800,
+                    easing: 'ease-in-out',
+                    once: true
+                });
+            }, []);
+
+            return (
+                <React.Fragment>
+                    <Navbar />
+                    <Hero />
+                    <main className="container my-5">
+                        <Section id="description" title="Course Description">
+                            <p>Finance A is an introductory course at the College of Law and Business in Ramat Gan, Israel, designed to provide students with foundational knowledge in financial principles. Covering topics such as time value of money, risk assessment, investment valuation, and basic corporate finance, this course equips law and business students with essential tools for making informed financial decisions in professional settings.</p>
+                        </Section>
+                        <Section id="lecturer" title="About the Lecturer">
+                            <p>Dr. Shay Tsaban is a senior lecturer specializing in accounting, finance, behavioral finance, economics, and decision-making. Holding a PhD with research focused on the economics of happiness, he brings an interdisciplinary approach to teaching, blending traditional finance with insights from behavioral economics. For inquiries, contact him at <a href="mailto:shay.tsaban@gmail.com">shay.tsaban@gmail.com</a>.</p>
+                        </Section>
+                        <Section id="materials" title="Course Materials">
+                            <p>The coursebook is a comprehensive Excel file that contains everything needed for the course, including the syllabus, lecture notes, assignments, practice problems, and additional resources.</p>
+                            <a href="Coursebook - CLB - PF - 2025 C.xlsx" className="btn btn-primary" download><i className="fas fa-download"></i> Download Coursebook</a>
+                        </Section>
+                        <VideosSection />
+                    </main>
+                    <Footer />
+                </React.Fragment>
+            );
+        }
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
