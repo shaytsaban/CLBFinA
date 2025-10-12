@@ -1,348 +1,298 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Finance A ‑ College of Law and Business</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Finance A - College of Law and Business</title>
 
-    <!--  🖋  STYLES & FONTS  -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <!--  STYLES & FONTS  -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
 
-    <style>
-        :root {
-            --brand-green: #27ae60;
-            --brand-green-dark: #219d55;
-            --text-gray: #7f8c8d;
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f9fafb;
-            color: #34495e;
-            line-height: 1.7;
-        }
-        /*  NAVBAR  */
-        .navbar {
-            background-color: #ffffff !important;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
-            padding: 1rem 0;
-            transition: background-color 0.3s ease;
-        }
-        .navbar.scrolled { background-color: #f8f9fa !important; }
-        .navbar-brand { font-weight: 700; font-size: 1.6rem; color: var(--brand-green); }
-        .nav-link {
-            color: var(--text-gray) !important;
-            font-weight: 500;
-            padding: 0.6rem 1.2rem;
-            transition: color 0.3s ease, transform 0.3s ease;
-            cursor: pointer;
-        }
-        .nav-link:hover { color: var(--brand-green) !important; transform: translateY(-3px); }
+  <style>
+    :root{
+      --brand: #27ae60;
+      --brand-2: #2ecc71;
+      --ink: #1f2937;
+      --muted: #6b7280;
+      --card: #ffffff;
+      --bg: #f6f9fb;
+    }
+    *{box-sizing:border-box}
+    html,body{scroll-behavior:smooth}
+    body{
+      font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(1000px 600px at 10% -10%, #e8fff3 0%, rgba(232,255,243,0) 60%),
+        radial-gradient(900px 500px at 110% -20%, #e9f9ff 0%, rgba(233,249,255,0) 60%),
+        var(--bg);
+      line-height:1.7;
+    }
 
-        /*  HERO  */
-        .hero {
-            background: linear-gradient(135deg, #2ecc71, var(--brand-green));
-            color: #fff;
-            padding: 120px 0 60px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 350px;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 100%);
-            animation: pulse 10s infinite;
-        }
-        @keyframes pulse { 0%{transform:scale(1);} 50%{transform:scale(1.05);} 100%{transform:scale(1);} }
-        .hero h1 { font-size: 3rem; font-weight: 700; margin-bottom: 15px; letter-spacing: -0.5px; }
-        .hero p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 25px; opacity: 0.95; }
+    /* NAVBAR */
+    .navbar{
+      background:rgba(255,255,255,.8)!important;
+      backdrop-filter:saturate(180%) blur(10px);
+      border-bottom:1px solid rgba(0,0,0,.06);
+      transition:all .25s ease;
+      padding:.9rem 0;
+    }
+    .navbar.scrolled{box-shadow:0 8px 30px rgba(0,0,0,.06)}
+    .navbar-brand{
+      font-weight:800;
+      letter-spacing:-.5px;
+      background:linear-gradient(90deg, var(--brand), var(--brand-2));
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+    }
+    .nav-link{color:var(--muted)!important;font-weight:600;border-radius:10px}
+    .nav-link:hover{color:var(--brand)!important}
 
-        /*  SECTIONS  */
-        .section-header { font-weight: 600; color: var(--brand-green); border-bottom: 2px solid var(--brand-green); padding-bottom: 10px; margin-bottom: 25px; font-size: 1.7rem; }
-        .card {
-            border: none;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
-            border-radius: 20px;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            background-color: #ffffff;
-            padding: 1.8rem;
-        }
-        .card:hover { transform: translateY(-12px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.14); }
+    /* HERO */
+    .hero{
+      position:relative;overflow:hidden;
+      display:grid;place-items:center;text-align:center;
+      padding:120px 0 80px;color:#fff;
+      background:linear-gradient(135deg, var(--brand), var(--brand-2));
+      isolation:isolate;
+    }
+    .hero .orb{
+      position:absolute;inset:auto -15% -35% auto; width:60vmax;height:60vmax;filter:blur(90px);opacity:.35;
+      background:radial-gradient(circle at 50% 50%, #ffffff 0%, rgba(255,255,255,0) 60%);
+      z-index:-1;
+    }
+    .hero h1{
+      font-weight:800;letter-spacing:-.5px;margin-bottom:10px;
+      font-size:clamp(2.2rem, 3.5vw + 1rem, 3.4rem);
+    }
+    .hero p{max-width:820px;margin:0 auto;opacity:.95}
 
-        /*  VIDEOS  */
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 25px; }
-        .ratio iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            border-radius: 15px;
-            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.1);
-            transition: box-shadow 0.4s ease;
-        }
-        .ratio iframe:hover { box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); }
+    /* CARDS / SECTIONS */
+    .section-header{
+      font-weight:800;
+      font-size:1.6rem;
+      margin-bottom:18px;
+      background:linear-gradient(90deg, var(--brand), #1fb58b);
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+    }
+    .card{
+      border:0;background:var(--card);
+      border-radius:22px;
+      box-shadow:0 8px 30px rgba(31,41,55,.08);
+      padding:2rem;
+      transition:transform .25s ease, box-shadow .25s ease;
+    }
+    .card:hover{transform:translateY(-4px);box-shadow:0 14px 40px rgba(31,41,55,.12)}
+    .lead-muted{color:var(--muted)}
 
-        /*  BUTTONS & FOOTER  */
-        .btn-primary { background-color: var(--brand-green); border: none; padding: 10px 25px; font-weight: 500; border-radius: 10px; transition: background-color 0.3s ease, transform 0.3s ease; font-size: 1rem; }
-        .btn-primary:hover { background-color: var(--brand-green-dark); transform: translateY(-3px); }
-        .btn-primary i { margin-right: 10px; }
-        footer { background-color: #f9fafb; color: var(--text-gray); padding: 40px 0; margin-top: 70px; border-top: 1px solid #ecf0f1; font-size: 0.95rem; }
+    /* VIDEOS */
+    .video-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px}
+    .ratio iframe{width:100%;height:100%;border:0;border-radius:14px;box-shadow:0 6px 24px rgba(0,0,0,.08)}
+    .video-title{font-size:1.05rem;font-weight:700;margin:.75rem 0 .5rem;color:#0f172a}
 
-        /*  RESPONSIVE  */
-        @media (max-width: 768px){
-            .hero h1{font-size:2.2rem;}
-            .hero p{font-size:1rem;}
-            .hero{padding:80px 0 40px;min-height:250px;}
-        }
-    </style>
+    /* BUTTONS */
+    .btn-brand{
+      --bs-btn-bg: var(--brand);
+      --bs-btn-border-color: var(--brand);
+      --bs-btn-hover-bg: #1f9a54;
+      --bs-btn-hover-border-color: #1f9a54;
+      --bs-btn-padding-x: 1rem;
+      --bs-btn-padding-y: .65rem;
+      --bs-btn-font-weight:600;
+      border-radius:12px;
+      box-shadow:0 8px 18px rgba(39,174,96,.25);
+    }
+    .btn-ghost{
+      background:#fff;border:1px solid rgba(31,41,55,.08);color:#0f172a;font-weight:600;border-radius:12px;
+    }
+    .btn-ghost:hover{border-color:rgba(31,41,55,.2);background:#fff;transform:translateY(-1px)}
+    .resource-buttons .btn{margin-right:.5rem;margin-bottom:.5rem}
 
-    <!--  🌐  LIBRARIES  -->
-    <!-- React & ReactDOM (UMD) -->
-    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin="anonymous"></script>
-    <!-- Babel Standalone for on‑the‑fly JSX compilation -->
-    <script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7/babel.min.js" crossorigin="anonymous"></script>
-    <!-- AOS for animations -->
-    <script src="https://unpkg.com/aos@next/dist/aos.js" crossorigin="anonymous" defer></script>
+    footer{color:var(--muted);padding:46px 0;margin-top:70px;border-top:1px solid rgba(0,0,0,.06)}
+    @media (max-width: 768px){
+      .hero{padding:90px 0 60px}
+    }
+  </style>
+
+  <!-- LIBS -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7/babel.min.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js" crossorigin="anonymous" defer></script>
 </head>
 <body>
-    <div id="root"></div>
+  <div id="root"></div>
 
-    <!--  ✨  APP CODE  -->
-    <script type="text/babel" data-presets="react,env">
-        /** ------------------------------------------------
-         *  Utility: Smooth scroll helper with null‑check    
-         * -----------------------------------------------*/
-        const scrollToSection = (id) => {
-            const el = document.getElementById(id);
-            if (el) {
-                window.scrollTo({ top: el.offsetTop - 80, behavior: 'smooth' });
-            }
+  <!-- APP -->
+  <script type="text/babel" data-presets="react,env">
+    /* Smooth scroll */
+    const scrollToSection = (id) => {
+      const el = document.getElementById(id);
+      if (el) window.scrollTo({ top: el.offsetTop - 80, behavior: 'smooth' });
+    };
+
+    /* Navbar */
+    function Navbar(){
+      React.useEffect(()=>{
+        const onScroll = () => {
+          const nb = document.querySelector('.navbar');
+          if (nb) nb.classList.toggle('scrolled', window.scrollY > 30);
         };
+        window.addEventListener('scroll', onScroll);
+        return () => window.removeEventListener('scroll', onScroll);
+      }, []);
+      const sections = ['description','lecturer','materials','videos'];
+      return (
+        <nav className="navbar navbar-expand-lg fixed-top navbar-light">
+          <div className="container">
+            <span className="navbar-brand">Finance A</span>
+            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse" id="nav">
+              <ul className="navbar-nav ms-auto">
+                {sections.map(sec => (
+                  <li key={sec} className="nav-item">
+                    <span className="nav-link px-3" onClick={() => scrollToSection(sec)}>
+                      {sec.charAt(0).toUpperCase()+sec.slice(1)}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </nav>
+      );
+    }
 
-        /** ----------------------- NAVBAR ------------------*/
-        function Navbar(){
-            React.useEffect(()=>{
-                const handleScroll = () => {
-                    const navbar = document.querySelector('.navbar');
-                    if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 50);
-                };
-                window.addEventListener('scroll', handleScroll);
-                return () => window.removeEventListener('scroll', handleScroll);
-            }, []);
+    /* Hero */
+    const Hero = () => (
+      <header className="hero">
+        <div className="orb" aria-hidden="true"></div>
+        <div className="container">
+          <h1 data-aos="fade-down">Finance A</h1>
+          <p className="lead" data-aos="fade-up" data-aos-delay="120">
+            Discover the core principles of finance at the College of Law and Business — blending law, business, and strategic financial thinking.
+          </p>
+          <div className="mt-3" data-aos="zoom-in" data-aos-delay="220">
+            <a className="btn btn-ghost me-2" onClick={()=>scrollToSection('materials')} role="button">
+              <i className="fa-solid fa-folder-open me-2"></i>Course Materials
+            </a>
+            <a className="btn btn-brand" onClick={()=>scrollToSection('videos')} role="button">
+              <i className="fa-solid fa-circle-play me-2"></i>Lecture Recordings
+            </a>
+          </div>
+        </div>
+      </header>
+    );
 
-            const sections = ['description','lecturer','materials','videos'];
-            return (
-                <nav className="navbar navbar-expand-lg fixed-top">
-                    <div className="container">
-                        <span className="navbar-brand">Finance A</span>
-                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                            <span className="navbar-toggler-icon"></span>
-                        </button>
-                        <div className="collapse navbar-collapse" id="navbarNav">
-                            <ul className="navbar-nav ms-auto">
-                                {sections.map(sec => (
-                                    <li key={sec} className="nav-item">
-                                        <span className="nav-link" onClick={() => scrollToSection(sec)}>{sec.charAt(0).toUpperCase() + sec.slice(1)}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-            );
+    /* Reusable section */
+    const Section = ({id,title,children}) => (
+      <section id={id} className="mb-5" data-aos="fade-up">
+        <div className="card">
+          <h2 className="section-header">{title}</h2>
+          {children}
+        </div>
+      </section>
+    );
+
+    /* Videos */
+    const Video = ({title, src}) => (
+      <div data-aos="fade-up">
+        <div className="ratio ratio-16x9">
+          <iframe src={src} title={title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowFullScreen></iframe>
+        </div>
+        <div className="video-title">{title}</div>
+      </div>
+    );
+
+    const VideosSection = () => (
+      <section id="videos" data-aos="fade-up">
+        <h2 className="section-header">Lecture Recordings</h2>
+        <p className="lead-muted mb-4">New videos are added after each session.</p>
+        <div className="video-grid">
+          <Video title="Lecture 1 – Basics of Finance & FV Calculations – 21.7.2025" src="https://www.youtube.com/embed/ulK2J6HZrhg"/>
+          <Video title="Lecture 2 – FV with Financial Calculator (Part 2) – 28.7.2025" src="https://www.youtube.com/embed/dLoPNEAQJU0"/>
+          <Video title="Lecture 3 – FV with Financial Calculator (Part 3) – 4.8.2025" src="https://www.youtube.com/embed/lpkNocu3JY0"/>
+          <Video title="Lecture 4 – PV with Financial Calculator (Part 1) – 11.8.2025" src="https://www.youtube.com/embed/ofiY_o-ye4o"/>
+          <Video title="Lecture 5 – PV & FV (Part 2) – 18.8.2025" src="https://www.youtube.com/embed/Bh9zZDTkG0s"/>
+          <Video title="Lecture 6 – PV Applications – 25.8.2025" src="https://www.youtube.com/embed/fiSNndGLo64"/>
+          <Video title="Lecture 7 – Effective Interest (Part 1) – 1.9.2025" src="https://www.youtube.com/embed/Viw8vrOUCCI"/>
+          <Video title="Lecture 8 – Effective Interest (Part 2) – 8.9.2025" src="https://www.youtube.com/embed/41n14yTIfb8"/>
+          <Video title="Lecture 9 – Projects – 15.9.2025" src="https://www.youtube.com/embed/5l1SLhw4yEo"/>
+          <Video title="Lecture 10 – Building Projects’ Cash Flows from Data – 29.9.2025" src="https://www.youtube.com/embed/l7sSCN20pP0"/>
+        </div>
+      </section>
+    );
+
+    /* Footer */
+    const Footer = () => (
+      <footer className="text-center">
+        <p>© 2025 Finance A – College of Law and Business. All rights reserved.</p>
+      </footer>
+    );
+
+    /* App */
+    function App(){
+      React.useEffect(() => {
+        if (window.AOS && typeof window.AOS.init === 'function') {
+          window.AOS.init({ duration: 650, easing: 'ease-out', once: true });
         }
+      }, []);
+      return (
+        <>
+          <Navbar/>
+          <Hero/>
+          <main className="container my-5">
+            <Section id="description" title="Course Description">
+              <p>
+                Finance A is an introductory course at the College of Law and Business in Ramat Gan, Israel. We’ll cover time value of money, risk, investment valuation, and core corporate finance—equipping you with tools to make sound financial decisions.
+              </p>
+            </Section>
 
-        /** ----------------------- HERO --------------------*/
-        const Hero = () => (
-            <header className="hero">
-                <div className="container">
-                    <h1 data-aos="fade-down">Finance A</h1>
-                    <p data-aos="fade-up" data-aos-delay="200">Discover the core principles of finance at the College of Law and Business. Gain insights that blend law, business, and strategic financial thinking.</p>
-                </div>
-            </header>
-        );
+            <Section id="lecturer" title="About the Lecturer">
+              <p>
+                Dr. Shay Tsaban is a senior lecturer specializing in accounting, finance, behavioral finance, economics, and decision-making. His PhD research focuses on the economics of happiness. Contact: <a href="mailto:shay.tsaban@gmail.com">shay.tsaban@gmail.com</a>.
+              </p>
+            </Section>
 
-        /** ------------------ REUSABLE SECTION --------------*/
-        const Section = ({id, title, children}) => (
-            <section id={id} className="mb-5" data-aos="fade-up">
-                <div className="card">
-                    <h2 className="section-header">{title}</h2>
-                    {children}
-                </div>
-            </section>
-        );
+            <Section id="materials" title="Course Materials">
+              <p className="lead-muted">The coursebook (Excel) includes the syllabus, lecture notes, assignments, practice problems, and resources.</p>
 
-        /** -------------- VIDEOS (FULLSCREEN OK) -----------*/
-        const VideosSection = () => (
-            <section id="videos" data-aos="fade-up">
-                <h2 className="section-header">Lecture Recordings</h2>
-                <p className="mb-4" data-aos="zoom-in" data-aos-delay="100">Recordings of lectures will be embedded below and updated each night following the session. Check back regularly for the latest videos.</p>
-                <div className="video-grid">
-                    <div data-aos="flip-left" data-aos-delay="200">
-                        <h3>Lecture 1 – Basics of Finance and FV Calculations – 21.7.2025</h3>
-                        <div className="ratio ratio-16x9">
-                            <iframe
-                                src="https://www.youtube.com/embed/ulK2J6HZrhg"
-                                title="Lecture 1 – Basics of Finance and FV Calculations"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-                                allowFullScreen
-                            ></iframe>
-                        </div>
-                        
-                        <h3>Lecture 2 – FV Calculations with Financial Calculator - Part 2 – 28.7.2025</h3>
-                        <div className="ratio ratio-16x9">
-                            <iframe
-                                src="https://www.youtube.com/embed/dLoPNEAQJU0"
-                                title="Lecture 2 – FV"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-                                allowFullScreen
-                            ></iframe>
-                        </div>   
+              <div className="d-flex flex-wrap align-items-center gap-2 mb-3">
+                <a href="Coursebook - CLB - PF - 2025 C.xlsx" className="btn btn-brand">
+                  <i className="fa-solid fa-download me-2"></i>Download Coursebook
+                </a>
+              </div>
 
-                         <h3>Lecture 3 – FV Calculations with Financial Calculator - Part 3 – 4.8.2025</h3>
-                        <div className="ratio ratio-16x9">
-                            <iframe
-                                src="https://www.youtube.com/embed/lpkNocu3JY0"
-                                title="Lecture 3 – FV - Complicated"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-                                allowFullScreen
-                            ></iframe>
-                        </div>   
+              <!-- Exam resource buttons -->
+              <div className="resource-buttons mt-2">
+                <a className="btn btn-ghost"
+                   href="Final%20Exam%20Example%20%231%20NO%20ANS.docx">
+                  <i className="fa-regular fa-file-word me-2"></i>Exam Example 1 – NO ANS
+                </a>
 
-                         <h3>Lecture 4 – PV Calculations with Financial Calculator - Part 1 – 11.8.2025</h3>
-                        <div className="ratio ratio-16x9">
-                            <iframe
-                                src="https://www.youtube.com/embed/ofiY_o-ye4o"
-                                title="Lecture 3 – FV - Complicated"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-                                allowFullScreen
-                            ></iframe>
-                        </div>   
+                <a className="btn btn-ghost"
+                   href="Final%20Exam%20Example%20%231%20ANS.docx">
+                  <i className="fa-regular fa-file-word me-2"></i>Exam Example 2 – Complete Ans
+                </a>
+              </div>
+            </Section>
 
-                         <h3>Lecture 5 – PV and FV Calciulations - Part 2 – 18.8.2025</h3>
-                        <div className="ratio ratio-16x9">
-                            <iframe
-                                src="https://www.youtube.com/embed/Bh9zZDTkG0s"
-                                title="Lecture 3 – FV - Complicated"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-                                allowFullScreen
-                            ></iframe>
-                       </div>  
+            <VideosSection/>
+          </main>
+          <Footer/>
+        </>
+      );
+    }
 
-                        <h3>Lecture 6 – PV Applications - 25.8.2025</h3>
-                        <div className="ratio ratio-16x9">
-                            <iframe
-                                src="https://www.youtube.com/embed/fiSNndGLo64"
-                                title="Lecture 3 – FV - Complicated"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-                                allowFullScreen
-                            ></iframe>
-                       </div>  
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App/>);
+  </script>
 
-                        <h3>Lecture 7 – Effective Interest Calculations Part 1 - 1.9.2025</h3>
-                        <div className="ratio ratio-16x9">
-                            <iframe
-                                src="https://www.youtube.com/embed/Viw8vrOUCCI"
-                                title="Lecture 3 – FV - Complicated"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-                                allowFullScreen
-                            ></iframe>
-                       </div>  
-
-                         <h3>Lecture 8 – Effective Interest Calculations Part 2 - 8.9.2025</h3>
-                        <div className="ratio ratio-16x9">
-                            <iframe
-                                src="https://www.youtube.com/embed/41n14yTIfb8"
-                                title="Lecture 3 – FV - Complicated"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-                                allowFullScreen
-                            ></iframe>
-                       </div>  
-
-                      <h3>Lecture 9 – Projects - 15.9.2025</h3>
-                        <div className="ratio ratio-16x9">
-                            <iframe
-                                src="https://www.youtube.com/embed/5l1SLhw4yEo"
-                                title="Lecture 3 – FV - Complicated"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-                                allowFullScreen
-                            ></iframe>
-                       </div>  
-
-                        <h3>Lecture 10 – Building Projects' Cash Flows Using Data - 29.9.2025</h3>
-                        <div className="ratio ratio-16x9">
-                            <iframe
-                                src="https://www.youtube.com/embed/l7sSCN20pP0"
-                                title="Lecture 3 – FV - Complicated"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-                                allowFullScreen
-                            ></iframe>
-                       </div>  
-
-
-                        
-                    </div>
-                </div>
-            </section>
-        );
-
-        /** ----------------------- FOOTER -------------------*/
-        const Footer = () => (
-            <footer className="text-center">
-                <p>© 2025 Finance A – College of Law and Business. All rights reserved.</p>
-            </footer>
-        );
-
-        /** ----------------------- APP ----------------------*/
-        function App(){
-            React.useEffect(() => {
-                /* Initialise AOS only if it loaded successfully */
-                if (window.AOS && typeof window.AOS.init === 'function') {
-                    window.AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
-                }
-            }, []);
-
-            return (
-                <>
-                    <Navbar />
-                    <Hero />
-                    <main className="container my-5">
-                        <Section id="description" title="Course Description">
-                            <p>
-                                Finance A is an introductory course at the College of Law and Business in Ramat Gan, Israel, designed to provide students with foundational knowledge in financial principles. Covering topics such as time value of money, risk assessment, investment valuation, and basic corporate finance, this course equips law and business students with essential tools for making informed financial decisions in professional settings.
-                            </p>
-                        </Section>
-                        <Section id="lecturer" title="About the Lecturer">
-                            <p>
-                                Dr. Shay Tsaban is a senior lecturer specializing in accounting, finance, behavioral finance, economics, and decision‑making. Holding a PhD with research focused on the economics of happiness, he brings an interdisciplinary approach to teaching, blending traditional finance with insights from behavioral economics. For inquiries, contact him at <a href="mailto:shay.tsaban@gmail.com">shay.tsaban@gmail.com</a>.
-                            </p>
-                        </Section>
-                        <Section id="materials" title="Course Materials">
-                            <p>The coursebook is a comprehensive Excel file that contains everything needed for the course, including the syllabus, lecture notes, assignments, practice problems, and additional resources.</p>
-                            <a href="Coursebook - CLB - PF - 2025 C.xlsx" className="btn btn-primary" download><i className="fas fa-download"></i> Download Coursebook</a>
-                        </Section>
-                        <VideosSection />
-                    </main>
-                    <Footer />
-                </>
-            );
-        }
-
-        /* ---------------- MOUNT REACT APP ----------------*/
-        const rootElement = document.getElementById('root');
-        ReactDOM.createRoot(rootElement).render(<App />);
-    </script>
-
-    <!--  ☂️  BOOTSTRAP JS  -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-QWTKZy
+  <!-- Bootstrap JS (no integrity to avoid mismatches when self-hosting) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>
