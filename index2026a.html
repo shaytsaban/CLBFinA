@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Finance A — Semester 2026A — Dr. Shay Tsaban — College of Law and Business Studies</title>
+  <style>
+    :root{
+      --brand:#27ae60; 
+      --brand2:#2ecc71; 
+      --brand-dark:#1e8449;
+      --ink:#0f172a; 
+      --muted:#64748b; 
+      --bg:#f8fafc; 
+      --card:#ffffff;
+      --shadow: 0 20px 25px -5px rgba(0,0,0,.1), 0 8px 10px -6px rgba(0,0,0,.1);
+      --shadow-sm: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);
+    }
+    
+    *{box-sizing:border-box}
+    
+    html{scroll-behavior:smooth}
+    
+    html,body{
+      margin:0;
+      padding:0;
+      font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+      color:var(--ink);
+      background:var(--bg);
+      line-height:1.7;
+    }
+    
+    a{color:inherit;text-decoration:none}
+    
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) }
+      50% { transform: translateY(-20px) }
+    }
+    
+    @keyframes shimmer {
+      0% { background-position: -1000px 0; }
+      100% { background-position: 1000px 0; }
+    }
+    
+    /* Navigation */
+    .nav{
+      position:sticky;
+      top:0;
+      z-index:100;
+      background:rgba(255,255,255,.95);
+      backdrop-filter:blur(20px) saturate(180%);
+      border-bottom:1px solid rgba(0,0,0,.08);
+      box-shadow: 0 1px 3px rgba(0,0,0,.05);
+      transition: all 0.3s ease;
+    }
+    
+    .nav.scrolled{
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -1px rgba(0,0,0,.06);
+    }
+    
+    .nav-inner{
+      max-width:1200px;
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:16px 24px;
+    }
+    
+    .brand{
+      font-weight:800;
+      font-size:1.35rem;
+      letter-spacing:-.5px;
+      background:linear-gradient(135deg,var(--brand) 0%,var(--brand2) 100%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+      text-shadow: 0 2px 10px rgba(39,174,96,.2);
+    }
+    
+    .nav ul{
+      display:flex;
+      gap:8px;
+      list-style:none;
+      margin:0;
+      padding:0;
+    }
+    
+    .nav a{
+      padding:10px 18px;
+      border-radius:12px;
+      color:var(--muted);
+      font-weight:600;
+      font-size:0.95rem;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+    }
+    
+    .nav a:hover{
+      color:var(--brand);
+      background: rgba(39,174,96,.08);
+      transform: translateY(-1px);
+    }
+    
+    /* Hero Section */
+    .hero{
+      position:relative;
+      display:grid;
+      place-items:center;
+      text-align:center;
+      padding:140px 24px 100px;
+      color:#fff;
+      background:linear-gradient(135deg, #1e8449 0%, var(--brand) 50%, var(--brand2) 100%);
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(255,255,255,.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255,255,255,.08) 0%, transparent 50%);
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    .hero .orb{
+      position:absolute;
+      inset:auto -15% -35% auto;
+      width:70vmax;
+      height:70vmax;
+      filter:blur(100px);
+      opacity:.4;
+      background:radial-gradient(circle,rgba(255,255,255,.8) 0%,rgba(255,255,255,0) 70%);
+      animation: float 8s ease-in-out infinite;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      animation: fadeInUp 0.8s ease-out;
+    }
+    
+    .hero h1{
+      margin:0 0 16px;
+      font-size:clamp(2.5rem,5vw,4.5rem);
+      font-weight:900;
+      letter-spacing:-1.5px;
+      line-height: 1.1;
+      text-shadow: 0 4px 20px rgba(0,0,0,.15);
+    }
+    
+    .hero p{
+      max-width:700px;
+      margin:0 auto 32px;
+      font-size:1.25rem;
+      line-height:1.8;
+      opacity:.95;
+      font-weight: 400;
+    }
+    
+    .hero-cta{
+      display:flex;
+      gap:16px;
+      justify-content:center;
+      flex-wrap:wrap;
+      animation: fadeInUp 0.8s ease-out 0.2s backwards;
+    }
+    
+    /* Layout */
+    .container{
+      max-width:1200px;
+      margin:0 auto;
+      padding:0 24px;
+    }
+    
+    .section{
+      margin:64px 0;
+      animation: fadeInUp 0.6s ease-out;
+    }
+    
+    .card{
+      background:var(--card);
+      border-radius:24px;
+      box-shadow: var(--shadow);
+      padding:40px;
+      border: 1px solid rgba(0,0,0,.04);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--brand), var(--brand2));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,.15);
+    }
+    
+    .card:hover::before {
+      opacity: 1;
+    }
+    
+    .section h2{
+      margin:0 0 16px;
+      font-size:2rem;
+      font-weight:800;
+      letter-spacing:-.5px;
+      background:linear-gradient(135deg,var(--brand) 0%,#1e8449 100%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+    
+    .muted{
+      color:var(--muted);
+      font-size:1.05rem;
+    }
+    
+    /* Buttons */
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      border-radius:14px;
+      border:2px solid transparent;
+      padding:14px 24px;
+      font-weight:600;
+      font-size:1rem;
+      cursor:pointer;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255,255,255,.3);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+    
+    .btn:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+    
+    .btn:active{
+      transform:scale(0.98);
+    }
+    
+    .btn-brand{
+      background:linear-gradient(135deg, var(--brand) 0%, var(--brand2) 100%);
+      color:#fff;
+      box-shadow:0 10px 25px rgba(39,174,96,.3);
+      border: 2px solid transparent;
+    }
+    
+    .btn-brand:hover{
+      box-shadow:0 15px 35px rgba(39,174,96,.4);
+      transform: translateY(-2px);
+    }
+    
+    .btn-big{
+      padding:20px 40px;
+      font-size:1.2rem;
+      font-weight:700;
+      border-radius: 16px;
+    }
+    
+    .btn-ghost{
+      background:#fff;
+      border:2px solid rgba(39,174,96,.2);
+      color: var(--ink);
+    }
+    
+    .btn-ghost:hover{
+      border-color:var(--brand);
+      background: rgba(39,174,96,.05);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .btn-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top: 20px;
+    }
+    
+    /* Videos Grid */
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+      gap:28px;
+    }
+    
+    .video {
+      transition: transform 0.3s ease;
+    }
+    
+    .video:hover {
+      transform: translateY(-6px);
+    }
+    
+    .video .frame{
+      position:relative;
+      width:100%;
+      padding-top:56.25%;
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,.15);
+      transition: all 0.3s ease;
+      border: 3px solid transparent;
+    }
+    
+    .video:hover .frame{
+      box-shadow: 0 20px 40px rgba(0,0,0,.2);
+      border-color: var(--brand2);
+    }
+    
+    .video iframe{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      border:0;
+    }
+    
+    .video h3{
+      font-size:1.05rem;
+      margin:16px 0 0;
+      font-weight:700;
+      color: var(--ink);
+      line-height: 1.4;
+    }
+    
+    /* Featured Section */
+    .featured-section {
+      background: linear-gradient(135deg, var(--brand) 0%, var(--brand2) 100%);
+      border-radius: 32px;
+      padding: 60px 40px;
+      text-align: center;
+      color: white;
+      box-shadow: 0 25px 50px rgba(39,174,96,.25);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .featured-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,.1) 0%, transparent 70%);
+      animation: float 10s ease-in-out infinite;
+    }
+    
+    .featured-section h2 {
+      color: white;
+      background: none;
+      -webkit-background-clip: unset;
+      background-clip: unset;
+      font-size: 2.5rem;
+      margin-bottom: 28px;
+      text-shadow: 0 2px 20px rgba(0,0,0,.2);
+    }
+    
+    /* Footer */
+    footer{
+      color:var(--muted);
+      padding:60px 0;
+      margin-top:80px;
+      border-top:1px solid rgba(0,0,0,.08);
+      text-align:center;
+      background: linear-gradient(to bottom, transparent, rgba(0,0,0,.02));
+    }
+    
+    footer p {
+      margin: 0;
+      font-size: 0.95rem;
+    }
+    
+    /* Responsive */
+    @media (max-width:768px){
+      .hero{padding:100px 20px 70px}
+      .nav-inner{padding:12px 20px}
+      .nav ul{gap:4px}
+      .nav a{padding:8px 12px; font-size:0.9rem}
+      .card{padding:28px}
+      .grid{grid-template-columns:1fr; gap:20px}
+      .btn-row{flex-direction: column}
+      .btn{width: 100%; justify-content: center}
+    }
+    
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+    
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav" id="navbar">
+    <div class="nav-inner">
+      <div class="brand">Finance A — 2026A</div>
+      <ul>
+        <li><a href="#description">Description</a></li>
+        <li><a href="#lecturer">Lecturer</a></li>
+        <li><a href="#materials">Materials</a></li>
+        <li><a href="#videos">Videos</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="orb" aria-hidden="true"></div>
+    <div class="hero-content">
+      <h1>Finance A — Semester 2026A</h1>
+      <p>Taught by Dr. Shay Tsaban, Ph.D. at the College of Law and Business Studies — Master the core principles of finance where strategic financial thinking meets real-world application</p>
+      <div class="hero-cta">
+        <a class="btn btn-ghost" href="#materials" aria-label="Jump to Course Materials">
+          <span>📚</span> Course Materials
+        </a>
+        <a class="btn btn-brand" href="#videos" aria-label="Jump to Lecture Recordings">
+          <span>🎥</span> Lecture Recordings
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="description" class="section reveal">
+      <div class="card">
+        <h2>📖 Course Description</h2>
+        <p>Finance A is an introductory course at the College of Law and Business Studies in Ramat Gan, Israel. We cover time value of money, risk and return, investment valuation, and fundamental corporate finance principles — providing you with practical tools for making sound financial decisions in today's complex business environment.</p>
+      </div>
+    </section>
+
+    <section id="lecturer" class="section reveal">
+      <div class="card">
+        <h2>👨‍🏫 About the Lecturer</h2>
+        <p>Dr. Shay Tsaban is a senior lecturer specializing in accounting, finance, behavioral finance, economics, and decision-making. His PhD research focuses on the economics of happiness, bringing a unique perspective to financial education. For inquiries, contact: <a href="mailto:shay.tsaban@gmail.com" style="color:var(--brand);font-weight:600;text-decoration:underline">shay.tsaban@gmail.com</a>.</p>
+      </div>
+    </section>
+
+    <section id="materials" class="section reveal">
+      <div class="card">
+        <h2>📚 Course Materials</h2>
+        <p class="muted">Access the comprehensive coursebook (Excel format) containing the syllabus, detailed lecture notes, assignments, practice problems, and additional resources.</p>
+        
+        <div class="btn-row">
+          <a class="btn btn-brand" href="https://mypac-my.sharepoint.com/:x:/g/personal/shay_tsaban_pac_org_il/ESyB-sT9nFlJpLobBCXzU8IBR7mL7QHoXgx6pAi5hXhGJw?e=5UkekA" target="_blank">
+            <span>⬇️</span> Download Coursebook
+          </a>
+        </div>
+
+        <h3 style="margin-top:40px;margin-bottom:16px;font-size:1.3rem;color:var(--ink)">📝 Final Exam Examples</h3>
+        <div class="btn-row">
+          <a class="btn btn-ghost" href="Final%20Exam%20Example%20%231%20NO%20ANS.docx">Exam #1 (No Answers)</a>
+          <a class="btn btn-ghost" href="Final%20Exam%20Example%20%231%20ANS.docx">Exam #1 (With Answers)</a>
+          <a class="btn btn-ghost" href="Final%20Exam%20Example%20%232%20NO%20ANS.docx">Exam #2 (No Answers)</a>
+          <a class="btn btn-ghost" href="Final%20Exam%20Example%202%20-%20ANS.xlsx">Exam #2 (With Answers)</a>
+          <a class="btn btn-ghost" href="Final%20Exam%20Example%203%20w%20Ans.xlsx">Exam #3 (With Answers)</a>
+          <a class="btn btn-ghost" href="Final%20Exam%20Example%204%20w%20ANS.xlsx">Exam #4 (With Answers)</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="videos" class="section reveal">
+      <h2 style="margin:0 0 12px;font-size:2.2rem">🎥 Lecture Recordings</h2>
+      <p class="muted" style="margin:0 0 32px">All lecture recordings will be available here approximately 24 hours following each session. Check back regularly for the latest content.</p>
+      <div class="card" style="text-align:center;padding:60px 40px">
+        <p style="font-size:1.15rem;color:var(--muted);margin:0">📹 Lectures will be posted here after each class session</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Finance A — Semester 2026A — Dr. Shay Tsaban, Ph.D. — College of Law and Business Studies. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth anchor scroll with offset for sticky nav
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id=a.getAttribute('href').slice(1);
+        const el=document.getElementById(id);
+        if(!el) return;
+        e.preventDefault();
+        const y=el.getBoundingClientRect().top + window.pageYOffset - 80;
+        window.scrollTo({top:y, behavior:'smooth'});
+      });
+    });
+    
+    // Navbar shadow on scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+    
+    // Scroll reveal animation
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealOnScroll = () => {
+      revealElements.forEach(el => {
+        const elementTop = el.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        if (elementTop < windowHeight - 100) {
+          el.classList.add('active');
+        }
+      });
+    };
+    
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll(); // Initial check
+  </script>
+</body>
+</html>
