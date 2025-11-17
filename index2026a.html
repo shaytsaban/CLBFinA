@@ -322,8 +322,9 @@
     /* Videos Grid */
     .grid{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+      grid-template-columns:repeat(auto-fit,minmax(340px,600px));
       gap:28px;
+      justify-content:center;
     }
     
     .video {
@@ -360,7 +361,7 @@
     
     .video h3{
       font-size:1.05rem;
-      margin:16px 0 0;
+      margin:0 0 16px;
       font-weight:700;
       color: var(--ink);
       line-height: 1.4;
@@ -509,8 +510,14 @@
     <section id="videos" class="section reveal">
       <h2 style="margin:0 0 12px;font-size:2.2rem">🎥 Lecture Recordings</h2>
       <p class="muted" style="margin:0 0 32px">All lecture recordings will be available here approximately 24 hours following each session. Check back regularly for the latest content.</p>
-      <div class="card" style="text-align:center;padding:60px 40px">
-        <p style="font-size:1.15rem;color:var(--muted);margin:0">📹 Lectures will be posted here after each class session</p>
+      
+      <div class="grid">
+        <div class="video">
+          <h3>Lecture 1 - 16.11.2025 - Basics of FV Calculations</h3>
+          <div class="frame">
+            <iframe src="https://www.youtube.com/embed/yW9m9LByliI" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+          </div>
+        </div>
       </div>
     </section>
   </main>
