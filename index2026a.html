@@ -54,6 +54,17 @@
       100% { background-position: 1000px 0; }
     }
     
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
     /* Navigation */
     .nav{
       position:sticky;
@@ -312,6 +323,31 @@
       box-shadow: var(--shadow-sm);
     }
     
+    .btn-coursebook{
+      background: linear-gradient(270deg, #27ae60, #2ecc71, #27ae60, #1e8449);
+      background-size: 400% 400%;
+      color:#fff;
+      padding: 24px 48px;
+      font-size: 1.4rem;
+      font-weight: 800;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(39,174,96,.4);
+      animation: gradientShift 3s ease infinite;
+      border: 3px solid rgba(255,255,255,.3);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    
+    .btn-coursebook:hover{
+      box-shadow: 0 20px 50px rgba(39,174,96,.6);
+      transform: translateY(-4px) scale(1.02);
+      animation: gradientShift 1.5s ease infinite;
+    }
+    
+    .btn-coursebook:active{
+      transform: scale(0.98);
+    }
+    
     .btn-row{
       display:flex;
       flex-wrap:wrap;
@@ -480,7 +516,7 @@
     <section id="lecturer" class="section reveal">
       <div class="card">
         <h2>👨‍🏫 About the Lecturer</h2>
-        <p>Dr. Shay Tsaban is a senior lecturer specializing in accounting, finance, behavioral finance, economics, and decision-making. His PhD research focuses on the economics of happiness, bringing a unique perspective to financial education. For inquiries, contact: <a href="mailto:shay.tsaban@gmail.com" style="color:var(--brand);font-weight:600;text-decoration:underline">shay.tsaban@gmail.com</a>.</p>
+        <p>Dr. Shay Tsaban is a senior lecturer specializing in accounting, finance, behavioral finance, economics, and decision-making. His PhD research focuses on the economics of happiness, bringing a unique perspective to financial education. For inquiries, contact: <a href="/cdn-cgi/l/email-protection#cdbea5acb4e3b9beacafaca38daaa0aca4a1e3aea2a0" style="color:var(--brand);font-weight:600;text-decoration:underline"><span class="__cf_email__" data-cfemail="10637871693e64637172717e50777d71797c3e737f7d">[email&#160;protected]</span></a>.</p>
       </div>
     </section>
 
@@ -490,7 +526,7 @@
         <p class="muted">Access the comprehensive coursebook (Excel format) containing the syllabus, detailed lecture notes, assignments, practice problems, and additional resources.</p>
         
         <div class="btn-row">
-          <a class="btn btn-brand" href="https://mypac-my.sharepoint.com/:x:/g/personal/shay_tsaban_pac_org_il/ESyB-sT9nFlJpLobBCXzU8IBR7mL7QHoXgx6pAi5hXhGJw?e=5UkekA" target="_blank">
+          <a class="btn btn-coursebook" href="https://mypac-my.sharepoint.com/:x:/g/personal/shay_tsaban_pac_org_il/ESyB-sT9nFlJpLobBCXzU8IBR7mL7QHoXgx6pAi5hXhGJw?e=5UkekA" target="_blank">
             <span>⬇️</span> Download Coursebook
           </a>
         </div>
@@ -528,7 +564,7 @@
     </div>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Smooth anchor scroll with offset for sticky nav
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click', e=>{
