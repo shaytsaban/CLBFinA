@@ -401,6 +401,7 @@
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
             background-size: 200% 100%;
             animation: shimmer 3s linear infinite;
+            pointer-events: none;
         }
 
         .exam-guidance-icon {
@@ -755,30 +756,30 @@
     </footer>
 
     <script>
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        const id = a.getAttribute('href').slice(1);
-        const el = document.getElementById(id);
-        if (!el) return;
-        e.preventDefault();
-        const y = el.getBoundingClientRect().top + window.pageYOffset - 80;
-        window.scrollTo({ top: y, behavior: 'smooth' });
-      });
-    });
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                const id = a.getAttribute('href').slice(1);
+                const el = document.getElementById(id);
+                if (!el) return;
+                e.preventDefault();
+                const y = el.getBoundingClientRect().top + window.pageYOffset - 80;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+            });
+        });
 
-    // Reveal on scroll
-    const revealElements = document.querySelectorAll('.reveal');
-    const revealOnScroll = () => {
-      revealElements.forEach(el => {
-        const top = el.getBoundingClientRect().top;
-        if (top < window.innerHeight - 100) {
-          el.classList.add('active');
-        }
-      });
-    };
-    window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll();
+        // Reveal on scroll
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            revealElements.forEach(el => {
+                const top = el.getBoundingClientRect().top;
+                if (top < window.innerHeight - 100) {
+                    el.classList.add('active');
+                }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
     </script>
 </body>
 
