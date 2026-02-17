@@ -375,6 +375,30 @@
             box-shadow: 0 20px 50px rgba(16, 185, 129, 0.5);
         }
 
+        .btn-marathon {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #fff;
+            padding: 24px 48px;
+            font-size: 1.4rem;
+            font-weight: 900;
+            border-radius: 18px;
+            box-shadow: 0 15px 40px rgba(217, 119, 6, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: 100%;
+            max-width: 500px;
+            justify-content: center;
+            margin-bottom: 24px;
+            animation: pulse-glow 2s infinite;
+            text-decoration: none;
+            display: flex;
+        }
+
+        .btn-marathon:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 20px 50px rgba(217, 119, 6, 0.5);
+        }
+
         .btn-row {
             display: flex;
             flex-wrap: wrap;
@@ -609,9 +633,16 @@
             <h1>Finance A<br />Semester 2026A</h1>
             <p>Taught by Dr. Shay Tsaban, Ph.D. at the College of Law and Business Studies — Master the core principles
                 of finance where strategic thinking meets real-world application</p>
-            <div class="hero-cta">
-                <a class="btn btn-ghost" href="#materials">📚 Course Materials</a>
-                <a class="btn btn-primary" href="#videos">🎥 Lecture Recordings</a>
+            <div class="hero-cta" style="flex-direction: column; align-items: center;">
+                <a class="btn btn-marathon"
+                    href="https://mypac-my.sharepoint.com/:w:/g/personal/shay_tsaban_pac_org_il/IQBFaPgWRJ7CSZmR4CKdf65NAXd2HDohPKOEBLRVi8tpSxU?e=WPpnKl"
+                    target="_blank">
+                    Marathon File - 16.2.2026
+                </a>
+                <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                    <a class="btn btn-ghost" href="#materials">📚 Course Materials</a>
+                    <a class="btn btn-primary" href="#videos">🎥 Lecture Recordings</a>
+                </div>
             </div>
         </div>
     </header>
@@ -629,7 +660,7 @@
 
         <section id="lecturer" class="section reveal">
             <div class="card">
-                <h2>👨‍🏫 About the Lecturer</h2>
+                <h2>👨🏫 About the Lecturer</h2>
                 <p>Dr. Shay Tsaban is a senior lecturer specializing in accounting, finance, behavioral finance,
                     economics, and decision-making. His PhD research focuses on the economics of happiness, bringing a
                     unique perspective to financial education. For inquiries, contact: <a
