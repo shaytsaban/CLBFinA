@@ -25,8 +25,6 @@
             --glass: rgba(255, 255, 255, 0.03);
             --text: #f1f5f9;
             --text-muted: #94a3b8;
-            --blue-exam: #3b82f6;
-            --blue-exam-light: #60a5fa;
         }
 
         * {
@@ -78,34 +76,63 @@
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(2deg); }
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(2deg);
+            }
         }
 
         @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(239, 68, 68, 0.4), 0 0 40px rgba(239, 68, 68, 0.2); }
-            50% { box-shadow: 0 0 30px rgba(239, 68, 68, 0.6), 0 0 60px rgba(239, 68, 68, 0.3); }
-        }
 
-        @keyframes pulse-glow-blue {
-            0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.4), 0 0 40px rgba(59, 130, 246, 0.2); }
-            50% { box-shadow: 0 0 30px rgba(59, 130, 246, 0.6), 0 0 60px rgba(59, 130, 246, 0.3); }
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(239, 68, 68, 0.4), 0 0 40px rgba(239, 68, 68, 0.2);
+            }
+
+            50% {
+                box-shadow: 0 0 30px rgba(239, 68, 68, 0.6), 0 0 60px rgba(239, 68, 68, 0.3);
+            }
         }
 
         @keyframes shimmer {
-            0% { background-position: -200% center; }
-            100% { background-position: 200% center; }
+            0% {
+                background-position: -200% center;
+            }
+
+            100% {
+                background-position: 200% center;
+            }
         }
 
         @keyframes gradient-flow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         @keyframes bounce-subtle {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
         }
 
         /* Navigation */
@@ -255,6 +282,13 @@
             color: transparent;
         }
 
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
         /* Glass Cards */
         .card {
             background: var(--card);
@@ -268,7 +302,7 @@
         .card:hover {
             transform: translateY(-8px);
             border-color: rgba(16, 185, 129, 0.3);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(16, 185, 129, 0.1);
         }
 
         .card h2 {
@@ -276,6 +310,11 @@
             font-weight: 700;
             margin-bottom: 16px;
             color: var(--text);
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
         }
 
         /* Buttons */
@@ -292,7 +331,6 @@
             border: none;
             position: relative;
             overflow: hidden;
-            text-decoration: none;
         }
 
         .btn-primary {
@@ -301,10 +339,21 @@
             box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
         }
 
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.4);
+        }
+
         .btn-ghost {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
             color: var(--text);
+        }
+
+        .btn-ghost:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--brand);
+            transform: translateY(-3px);
         }
 
         .btn-coursebook {
@@ -316,61 +365,38 @@
             font-size: 1.3rem;
             font-weight: 800;
             border-radius: 20px;
-        }
-
-        /* New Final Exam Button */
-        .btn-final-exam {
-            background: linear-gradient(135deg, var(--blue-exam), var(--blue-exam-light));
-            color: #fff;
-            padding: 24px 48px;
-            font-size: 1.1rem;
-            font-weight: 800;
-            border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.4);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            width: 100%;
-            max-width: 600px;
-            justify-content: center;
-            margin-bottom: 24px;
-            animation: pulse-glow-blue 2s infinite;
-            display: flex;
-            flex-direction: column;
-            line-height: 1.3;
+            letter-spacing: 1px;
         }
 
-        .btn-final-exam:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 20px 50px rgba(59, 130, 246, 0.6);
-        }
-
-        .btn-final-exam .subtext {
-            font-size: 0.9rem;
-            opacity: 0.9;
-            margin-top: 4px;
-            font-weight: 600;
+        .btn-coursebook:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(16, 185, 129, 0.5);
         }
 
         .btn-marathon {
             background: linear-gradient(135deg, #f59e0b, #d97706);
             color: #fff;
-            padding: 20px 48px;
-            font-size: 1.2rem;
+            padding: 24px 48px;
+            font-size: 1.4rem;
             font-weight: 900;
             border-radius: 18px;
             box-shadow: 0 15px 40px rgba(217, 119, 6, 0.4);
             text-transform: uppercase;
             letter-spacing: 1px;
             width: 100%;
-            max-width: 600px;
+            max-width: 500px;
             justify-content: center;
             margin-bottom: 24px;
-            animation: pulse-glow 2.5s infinite;
+            animation: pulse-glow 2s infinite;
+            text-decoration: none;
             display: flex;
         }
 
         .btn-marathon:hover {
-            transform: translateY(-5px) scale(1.02);
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 20px 50px rgba(217, 119, 6, 0.5);
         }
 
         .btn-row {
@@ -392,6 +418,16 @@
             animation: pulse-glow 3s ease-in-out infinite;
         }
 
+        .exam-guidance::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 3s linear infinite;
+            pointer-events: none;
+        }
+
         .exam-guidance-icon {
             font-size: 4rem;
             margin-bottom: 24px;
@@ -404,6 +440,15 @@
             font-weight: 800;
             color: #fff;
             margin-bottom: 16px;
+            text-shadow: 0 2px 20px rgba(239, 68, 68, 0.5);
+        }
+
+        .exam-guidance p {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            max-width: 600px;
+            margin: 0 auto 32px;
+            line-height: 1.8;
         }
 
         .btn-exam {
@@ -413,9 +458,25 @@
             font-size: 1.2rem;
             font-weight: 700;
             border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(239, 68, 68, 0.4);
             display: inline-flex;
             align-items: center;
             gap: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-exam:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 15px 40px rgba(239, 68, 68, 0.5);
+        }
+
+        .btn-exam .arrow {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-exam:hover .arrow {
+            transform: translateX(5px);
         }
 
         /* Video Grid */
@@ -432,6 +493,12 @@
             border: 1px solid var(--card-border);
             overflow: hidden;
             transition: all 0.4s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(16, 185, 129, 0.3);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
         }
 
         .video-card .frame {
@@ -493,12 +560,41 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero { padding: 80px 20px; min-height: auto; }
-            .hero h1 { font-size: 2.5rem; }
-            .nav ul { display: none; } /* Simplified for mobile */
-            .card, .exam-guidance { padding: 28px; }
-            .video-grid { grid-template-columns: 1fr; }
-            .btn-final-exam { padding: 16px 20px; font-size: 0.95rem; }
+            .hero {
+                padding: 80px 20px;
+                min-height: auto;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav ul {
+                gap: 4px;
+            }
+
+            .nav a {
+                padding: 8px 12px;
+                font-size: 0.85rem;
+            }
+
+            .card,
+            .exam-guidance {
+                padding: 28px;
+            }
+
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .exam-guidance h2 {
+                font-size: 1.6rem;
+            }
+
+            .btn-exam {
+                padding: 16px 28px;
+                font-size: 1rem;
+            }
         }
 
         /* Reveal Animation */
@@ -535,26 +631,17 @@
         <div class="hero-orb hero-orb-2"></div>
         <div class="hero-content">
             <h1>Finance A<br />Semester 2026A</h1>
-            <p>Taught by Dr. Shay Tsaban, Ph.D. at the College of Law and Business Studies</p>
-            
+            <p>Taught by Dr. Shay Tsaban, Ph.D. at the College of Law and Business Studies — Master the core principles
+                of finance where strategic thinking meets real-world application</p>
             <div class="hero-cta" style="flex-direction: column; align-items: center;">
-                <!-- NEW FINAL EXAM BUTTON -->
-                <a class="btn btn-final-exam" 
-                   href="https://mypac-my.sharepoint.com/:x:/g/personal/shay_tsaban_pac_org_il/IQDSO2YrkzdyT5TitQPAlHR3AYr20kE7bSRwJS4To6QBxK0?e=tUPMdO" 
-                   target="_blank">
-                    <span>Final Exam - 2026A, Moed A - 19.2.2026 - with ANS</span>
-                    <span class="subtext">🚀 Click Here to Access</span>
-                </a>
-
                 <a class="btn btn-marathon"
                     href="https://mypac-my.sharepoint.com/:w:/g/personal/shay_tsaban_pac_org_il/IQBFaPgWRJ7CSZmR4CKdf65NAXd2HDohPKOEBLRVi8tpSxU?e=WPpnKl"
                     target="_blank">
                     Marathon File - 16.2.2026
                 </a>
-                
                 <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-                    <a class="btn btn-ghost" href="#materials">📚 Materials</a>
-                    <a class="btn btn-primary" href="#videos">🎥 Recordings</a>
+                    <a class="btn btn-ghost" href="#materials">📚 Course Materials</a>
+                    <a class="btn btn-primary" href="#videos">🎥 Lecture Recordings</a>
                 </div>
             </div>
         </div>
@@ -566,15 +653,17 @@
                 <h2>📖 Course Description</h2>
                 <p>Finance A is an introductory course at the College of Law and Business Studies in Ramat Gan, Israel.
                     We cover time value of money, risk and return, investment valuation, and fundamental corporate
-                    finance principles.</p>
+                    finance principles — providing you with practical tools for making sound financial decisions in
+                    today's complex business environment.</p>
             </div>
         </section>
 
         <section id="lecturer" class="section reveal">
             <div class="card">
-                <h2>👨‍🏫 About the Lecturer</h2>
+                <h2>👨🏫 About the Lecturer</h2>
                 <p>Dr. Shay Tsaban is a senior lecturer specializing in accounting, finance, behavioral finance,
-                    economics, and decision-making. Contact: <a
+                    economics, and decision-making. His PhD research focuses on the economics of happiness, bringing a
+                    unique perspective to financial education. For inquiries, contact: <a
                         href="mailto:shay.tsaban@pac.org.il"
                         style="color:var(--brand);font-weight:600;text-decoration:underline">shay.tsaban@pac.org.il</a>.
                 </p>
@@ -584,7 +673,8 @@
         <section id="materials" class="section reveal">
             <div class="card">
                 <h2>📚 Course Materials</h2>
-                <p>Access the comprehensive coursebook (Excel format) containing the syllabus, notes, and resources.</p>
+                <p>Access the comprehensive coursebook (Excel format) containing the syllabus, detailed lecture notes,
+                    assignments, practice problems, and additional resources.</p>
 
                 <div class="btn-row">
                     <a class="btn btn-coursebook"
@@ -594,27 +684,31 @@
                     </a>
                 </div>
 
-                <h3 style="margin-top:48px;margin-bottom:20px;font-size:1.4rem;color:var(--text)">📝 Final Exam Examples</h3>
+                <h3 style="margin-top:48px;margin-bottom:20px;font-size:1.4rem;color:var(--text)">📝 Final Exam Examples
+                </h3>
                 <div class="exam-btn-grid">
-                    <a class="exam-btn" href="#">Exam #1 (No Answers)</a>
-                    <a class="exam-btn" href="#">Exam #1 (With Answers)</a>
-                    <a class="exam-btn" href="#">Exam #2 (No Answers)</a>
-                    <a class="exam-btn" href="#">Exam #2 (With Answers)</a>
-                    <a class="exam-btn" href="#">Exam #3 (With Answers)</a>
-                    <a class="exam-btn" href="#">Exam #4 (With Answers)</a>
+                    <a class="exam-btn" href="Final%20Exam%20Example%20%231%20NO%20ANS.docx">Exam #1 (No Answers)</a>
+                    <a class="exam-btn" href="Final%20Exam%20Example%20%231%20ANS.docx">Exam #1 (With Answers)</a>
+                    <a class="exam-btn" href="Final%20Exam%20Example%20%232%20NO%20ANS.docx">Exam #2 (No Answers)</a>
+                    <a class="exam-btn" href="Final%20Exam%20Example%202%20-%20ANS.xlsx">Exam #2 (With Answers)</a>
+                    <a class="exam-btn" href="Final%20Exam%20Example%203%20w%20Ans.xlsx">Exam #3 (With Answers)</a>
+                    <a class="exam-btn" href="Final%20Exam%20Example%204%20w%20ANS.xlsx">Exam #4 (With Answers)</a>
                 </div>
             </div>
         </section>
 
+        <!-- IMPORTANT GUIDANCE SECTION -->
         <section id="exam-guidance" class="section reveal">
             <div class="exam-guidance">
                 <div class="exam-guidance-icon">👆📋</div>
                 <h2>⚠️ IMPORTANT GUIDANCE TOWARDS FINAL EXAM</h2>
-                <p>This section includes the <strong>exam cover</strong> with all the guidance and materials to use. This is the <u>actual cover letter</u> of the exam!</p>
+                <p>This section includes the <strong>exam cover</strong> with all the guidance and materials to use,
+                    instructions on how many questions to answer, and other essential details. This is the <u>actual
+                        cover letter</u> of the exam!</p>
                 <a class="btn-exam"
                     href="https://mypac-my.sharepoint.com/:w:/g/personal/shay_tsaban_pac_org_il/IQAPc3pbZ_kOQI59reFitxDTASlbVFowSDEZlc-Gh7KhuPo?e=vKPsDU"
                     target="_blank">
-                    🚀 Download Cover Letter <span class="arrow">→</span>
+                    🚀 Click Here to Download <span class="arrow">→</span>
                 </a>
             </div>
         </section>
@@ -622,29 +716,74 @@
         <section id="videos" class="section reveal">
             <div class="section-header">
                 <h2>🎥 Lecture Recordings</h2>
-                <p>Recordings are available approximately 24 hours following each session.</p>
+                <p>All lecture recordings will be available here approximately 24 hours following each session. Check
+                    back regularly for the latest content.</p>
             </div>
 
             <div class="video-grid">
-                <!-- Example Lecture Grid -->
                 <div class="video-card">
                     <div class="frame">
-                        <iframe src="https://www.youtube.com/embed/yW9m9LByliI" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/yW9m9LByliI" allowfullscreen
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
                     </div>
-                    <h3>Lecture 1 - Basics of FV Calculations</h3>
+                    <h3>Lecture 1 - 16.11.2025 - Basics of FV Calculations</h3>
                 </div>
                 <div class="video-card">
                     <div class="frame">
-                        <iframe src="https://www.youtube.com/embed/ei-JxORDV0w" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/ei-JxORDV0w" allowfullscreen
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
                     </div>
-                    <h3>Lecture 2 - Advanced FV Calculations</h3>
+                    <h3>Lecture 2 - 23.11.2025 - Advanced FV Calculations</h3>
+                </div>
+                <div class="video-card">
+                    <div class="frame">
+                        <iframe src="https://www.youtube.com/embed/FyIepVtH3GI" allowfullscreen
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                    </div>
+                    <h3>Lecture 3 - 30.11.2025 - Advanced Multiple Stages - FV Calculations</h3>
+                </div>
+                <div class="video-card">
+                    <div class="frame">
+                        <iframe src="https://www.youtube.com/embed/0BZFuYsPfYY" allowfullscreen
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                    </div>
+                    <h3>Lecture 4 - 7.12.2025 - Present Value (PV) Calculations</h3>
+                </div>
+                <div class="video-card">
+                    <div class="frame">
+                        <iframe src="https://www.youtube.com/embed/LP13F1_LCs4" allowfullscreen
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                    </div>
+                    <h3>Lecture 5 - 21.12.2025 - PV Applications in Loans and Interest Rates</h3>
+                </div>
+                <div class="video-card">
+                    <div class="frame">
+                        <iframe src="https://www.youtube.com/embed/nSx3lyDqqtQ" allowfullscreen
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                    </div>
+                    <h3>Lecture 6 - 28.12.2025 - PV Applications - Financial Planning</h3>
+                </div>
+                <div class="video-card">
+                    <div class="frame">
+                        <iframe src="https://www.youtube.com/embed/ikglAXFHoPE" allowfullscreen
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                    </div>
+                    <h3>Lecture 7 - 3.1.2026 - Effective Interest Calculations</h3>
+                </div>
+                <div class="video-card">
+                    <div class="frame">
+                        <iframe src="https://www.youtube.com/embed/AKWhj3K_M-c" allowfullscreen
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                    </div>
+                    <h3>Lecture 8 - 11.1.2026 - Effective Interest Calculations - Exercises</h3>
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>© 2026 Finance A — Dr. Shay Tsaban, Ph.D. — College of Law and Business Studies.</p>
+        <p>© 2026 Finance A — Semester 2026A — Dr. Shay Tsaban, Ph.D. — College of Law and Business Studies. All rights
+            reserved.</p>
     </footer>
 
     <script>
