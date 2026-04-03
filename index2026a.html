@@ -25,6 +25,7 @@
             --glass: rgba(255, 255, 255, 0.03);
             --text: #f1f5f9;
             --text-muted: #94a3b8;
+            --moed-b-grad: linear-gradient(135deg, #3b82f6, #6366f1);
         }
 
         * {
@@ -96,6 +97,15 @@
 
             50% {
                 box-shadow: 0 0 30px rgba(239, 68, 68, 0.6), 0 0 60px rgba(239, 68, 68, 0.3);
+            }
+        }
+
+        @keyframes pulse-glow-blue {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(59, 130, 246, 0.4), 0 0 40px rgba(59, 130, 246, 0.2);
+            }
+            50% {
+                box-shadow: 0 0 35px rgba(59, 130, 246, 0.7), 0 0 70px rgba(59, 130, 246, 0.3);
             }
         }
 
@@ -186,12 +196,12 @@
         /* Hero */
         .hero {
             position: relative;
-            min-height: 85vh;
+            min-height: 90vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 120px 24px;
+            padding: 100px 24px;
             overflow: hidden;
         }
 
@@ -394,6 +404,48 @@
             display: flex;
         }
 
+        /* NEW MOED B BUTTON STYLE */
+        .btn-moed-b {
+            background: var(--moed-b-grad);
+            color: #fff;
+            padding: 28px 52px;
+            font-size: 1.6rem;
+            font-weight: 900;
+            border-radius: 22px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            width: 100%;
+            max-width: 600px;
+            justify-content: center;
+            margin-bottom: 32px;
+            animation: pulse-glow-blue 3s infinite;
+            text-decoration: none;
+            display: flex;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-moed-b:hover {
+            transform: translateY(-6px) scale(1.04);
+            box-shadow: 0 25px 60px rgba(59, 130, 246, 0.6);
+        }
+
+        .btn-moed-b-wrapper {
+            margin-bottom: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .btn-moed-b-label {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 12px;
+            text-shadow: 0 0 15px rgba(59, 130, 246, 0.8);
+            direction: rtl;
+        }
+
         .btn-marathon:hover {
             transform: translateY(-5px) scale(1.03);
             box-shadow: 0 20px 50px rgba(217, 119, 6, 0.5);
@@ -578,6 +630,15 @@
                 font-size: 0.85rem;
             }
 
+            .btn-moed-b {
+                padding: 20px 30px;
+                font-size: 1.2rem;
+            }
+
+            .btn-moed-b-label {
+                font-size: 1.4rem;
+            }
+
             .card,
             .exam-guidance {
                 padding: 28px;
@@ -633,12 +694,24 @@
             <h1>Finance A<br />Semester 2026A</h1>
             <p>Taught by Dr. Shay Tsaban, Ph.D. at the College of Law and Business Studies — Master the core principles
                 of finance where strategic thinking meets real-world application</p>
+            
             <div class="hero-cta" style="flex-direction: column; align-items: center;">
+                
+                <!-- NEW MOED B PROMINENT BUTTON -->
+                <div class="btn-moed-b-wrapper">
+                    <div class="btn-moed-b-label">הצעת פתרון למועד ב להלן</div>
+                    <a class="btn btn-moed-b" 
+                       href="Final%20Exam%20Moed%20B%20-%2026032026%20-%20w%20ans.html">
+                       Final Exam Moed B - Solution
+                    </a>
+                </div>
+
                 <a class="btn btn-marathon"
                     href="https://mypac-my.sharepoint.com/:w:/g/personal/shay_tsaban_pac_org_il/IQBFaPgWRJ7CSZmR4CKdf65NAXd2HDohPKOEBLRVi8tpSxU?e=WPpnKl"
                     target="_blank">
                     Marathon File - 16.2.2026
                 </a>
+                
                 <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
                     <a class="btn btn-ghost" href="#materials">📚 Course Materials</a>
                     <a class="btn btn-primary" href="#videos">🎥 Lecture Recordings</a>
