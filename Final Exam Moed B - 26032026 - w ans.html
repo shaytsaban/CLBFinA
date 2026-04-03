@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>פתרונות יסודות המימון - מועד ב' 2025א</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f4f8; }
+        table { width: 100%; border-collapse: collapse; margin-top: 1rem; margin-bottom: 1rem; background-color: white;}
+        th { background-color: #cbd5e1; border: 1px solid #94a3b8; padding: 0.75rem; text-align: center; color: #1e293b; font-weight: bold; }
+        .row-header { background-color: #e2e8f0; font-family: 'Courier New', Courier, monospace; font-weight: bold; color: #0f172a; text-align: right; width: 120px;}
+        td { border: 1px solid #cbd5e1; padding: 0.75rem; color: #0f172a; text-align: center;}
+        .alt-interp { background-color: #fef3c7; border-right: 4px solid #f59e0b; padding: 0.75rem; margin-top: 1rem; border-radius: 0.25rem; font-size: 0.95em; color: #92400e; font-weight: 600;}
+        .question-box { background-color: #f8fafc; border: 1px solid #e2e8f0; border-right: 4px solid #3b82f6; padding: 1rem; margin-bottom: 1rem; border-radius: 0.25rem; font-style: italic; color: #475569; }
+        .q-table { width: auto; min-width: 250px; border-collapse: collapse; margin: 10px 0; background: white; font-style: normal; }
+        .q-table th, .q-table td { border: 1px solid #cbd5e1; padding: 4px 12px; text-align: center; color: #0f172a; }
+        .q-table th { background-color: #f1f5f9; font-weight: bold; }
+        
+        /* הגדרות מיוחדות להדפסה ל-PDF */
+        @media print {
+            body { background-color: white; margin: 0; padding: 0; }
+            .no-print { display: none !important; }
+            #main-content { box-shadow: none; border: none; max-width: 100%; padding: 0; }
+            .mb-12 { page-break-inside: avoid; margin-bottom: 2rem; }
+            table { page-break-inside: auto; }
+            tr { page-break-inside: avoid; page-break-after: auto; }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="max-w-7xl mx-auto bg-white p-6 rounded-xl shadow-lg border border-slate-200" id="main-content">
+        
+        <!-- Header & Export -->
+        <div class="flex flex-col xl:flex-row justify-between items-center border-b-2 border-slate-200 pb-6 mb-6">
+            <div class="mb-4 xl:mb-0">
+                <h1 class="text-3xl font-extrabold text-blue-900">פתרונות בחינה: יסודות המימון מועד ב' (2025א)</h1>
+                <p class="text-slate-600 mt-2 font-medium">הצגת דרך פתרון - שלבים כעמודות, פרמטרים כשורות</p>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-3 no-print">
+                <button onclick="window.print()" class="bg-slate-700 hover:bg-slate-800 text-white font-bold py-3 px-6 rounded-lg shadow-md flex items-center justify-center gap-2 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+                    </svg>
+                    הדפסה ל-PDF
+                </button>
+                <button onclick="exportToExcel()" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg shadow-md flex items-center justify-center gap-2 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    ייצוא ל-Excel
+                </button>
+            </div>
+        </div>
+
+        <!-- הבהרת מרצה / פקטור -->
+        <div class="bg-amber-50 border-r-4 border-amber-500 p-4 mb-8 rounded shadow-sm text-amber-900">
+            <p class="font-bold text-lg mb-1">הודעה לסטודנטים:</p>
+            <p>מדובר בהצעת פתרון. בבדיקה בוצעו התחשבויות רבות, בהנחות חלופיות, עיגול תוצאות וכן הלאה. בנוסף ניתן פקטור של 10 נקודות. לכן אין להגיש ערעור אלא אם יש טעות מהותית בבדיקה.</p>
+        </div>
+
+        <!-- Summary Section -->
+        <div class="mb-12">
+            <h2 class="text-2xl font-bold text-slate-800 mb-4">ריכוז תשובות סופיות</h2>
+            <div class="overflow-x-auto rounded border border-slate-300">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="w-16 text-center text-lg">שאלה</th>
+                            <th class="text-lg">תשובה סופית</th>
+                            <th class="text-lg text-amber-800 bg-amber-100">פרשנות חלופית (עמימות בניסוח)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="font-bold text-blue-900">1</td><td class="font-bold text-green-700" dir="ltr">469,594.39</td><td>-</td></tr>
+                        <tr class="bg-slate-50"><td class="font-bold text-blue-900">2</td><td class="font-bold text-green-700" dir="ltr">203,393.06</td><td class="text-amber-700">במידה והתשלום בשנים 7-10 חצי שנתי: <b dir="ltr">133,270.94</b></td></tr>
+                        <tr><td class="font-bold text-blue-900">3</td><td class="font-bold text-green-700">תשלום חודשי: <span dir="ltr">2,013.81</span>; סך ריבית: <span dir="ltr">164,154.36</span></td><td>-</td></tr>
+                        <tr class="bg-slate-50"><td class="font-bold text-blue-900">4</td><td class="font-bold text-green-700" dir="ltr">0.1741 (17.41%)</td><td>-</td></tr>
+                        <tr><td class="font-bold text-blue-900">5</td><td class="font-bold text-green-700">חלופה 1 (עלות מזערית: <span dir="ltr">22,000</span> ש"ח)</td><td class="text-amber-700">במידה ומסלול 4 הוא 12 חודשים: <b>חלופה 4 תועדף (<span dir="ltr">21,322.95</span> ש"ח)</b></td></tr>
+                        <tr class="bg-slate-50"><td class="font-bold text-blue-900">6</td><td class="font-bold text-green-700" dir="ltr">4,695.43</td><td>-</td></tr>
+                        <tr><td class="font-bold text-blue-900">7</td><td class="font-bold text-green-700">א: <span dir="ltr">10.38%</span>, ב: <span dir="ltr">6.15%</span>, ג: <span dir="ltr">11.00%</span>, ד: <span dir="ltr">13.98%</span>. עדיפה: מסלול 4</td><td class="text-amber-700">במידה וד"ר כהן לווה ולא משקיע: <b>מסלול 2 יועדף</b></td></tr>
+                        <tr class="bg-slate-50"><td class="font-bold text-blue-900">8</td><td class="font-bold text-green-700">א. חסר מחיר הון; ב. א <span dir="ltr">31.8%</span>, ב <span dir="ltr">28.6%</span>; ג. ייתכן</td><td>-</td></tr>
+                        <tr><td class="font-bold text-blue-900">9</td><td class="font-bold text-green-700"><span dir="ltr">666,586.13</span> (הפרויקט כדאי)</td><td>-</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <hr class="my-8 border-slate-300">
+
+        <!-- Question 1 -->
+        <div class="mb-12">
+            <h3 class="text-xl font-bold bg-blue-800 text-white p-2 rounded-t">שאלה מס' 1 (12.5 נק')</h3>
+            <div class="question-box">
+                שי יפקיד בתום כל חודש לחסכון סכום של 7,000 ש"ח במשך שנתיים. לאחר מכן, בכוונתו להפקיד בתום כל חצי שנה סכום של 4,000 ש"ח במשך 3 שנים. בשנה ה-6, יפקיד בתום כל רבעון סכום של 8,000 ש"ח. הסכום שנצבר לתום השנה ה-6 ימשיך לצבור ריבית (ללא הפקדות נוספות) עד וכולל תום השנה ה-14. במועד זה, ייפרע החסכון.<br>
+                ריביות אפקטיביות שנתיות:
+                <table class="q-table">
+                    <tr><th>תקופה</th><th>ריבית</th></tr>
+                    <tr><td>שנים 1-2</td><td>8%</td></tr>
+                    <tr><td>שנים 3-6</td><td>9%</td></tr>
+                    <tr><td>שנים 7-14</td><td>5%</td></tr>
+                </table>
+                <b>נדרש:</b> מהו הסכום הכולל שיעמוד לרשותו של שי בתום 14 השנים?
+            </div>
+            <div class="overflow-x-auto">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="row-header"></th>
+                            <th>חודשים 1-24</th>
+                            <th>שנים 3-5 (חציונים)</th>
+                            <th>שנה 6 (רבעונים)</th>
+                            <th>העברת Fv1 לסוף ש6</th>
+                            <th>העברת Fv2 לסוף ש6</th>
+                            <th>העברה סופית לתום ש14</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="row-header">Rate</td><td dir="ltr">0.006434</td><td dir="ltr">0.044031</td><td dir="ltr">0.021778</td><td dir="ltr">0.090000</td><td dir="ltr">0.090000</td><td dir="ltr">0.050000</td></tr>
+                        <tr class="bg-slate-50"><td class="row-header">Nper</td><td dir="ltr">24</td><td dir="ltr">6</td><td dir="ltr">4</td><td dir="ltr">4</td><td dir="ltr">1</td><td dir="ltr">8</td></tr>
+                        <tr><td class="row-header">Pmt</td><td dir="ltr">-7000</td><td dir="ltr">-4000</td><td dir="ltr">-8000</td><td dir="ltr">0</td><td dir="ltr">0</td><td dir="ltr">0</td></tr>
+                        <tr class="bg-slate-50"><td class="row-header">Pv</td><td dir="ltr">0</td><td dir="ltr">0</td><td dir="ltr">0</td><td dir="ltr">-181,048.86</td><td dir="ltr">-26,801.85</td><td dir="ltr">-317,840.03</td></tr>
+                        <tr><td class="row-header">Fv</td><td class="font-bold text-blue-700" dir="ltr">181,048.86</td><td class="font-bold text-blue-700" dir="ltr">26,801.85</td><td class="font-bold text-blue-700" dir="ltr">33,060.60</td><td class="font-bold text-blue-700" dir="ltr">255,565.41</td><td class="font-bold text-blue-700" dir="ltr">29,214.02</td><td class="font-bold text-green-700 text-xl" dir="ltr">469,594.39</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="mb-12">
+            <h3 class="text-xl font-bold bg-blue-800 text-white p-2 rounded-t">שאלה מס' 2 (12.5 נק')</h3>
+            <div class="question-box">
+                להלן נתוני תקבולים שצפויים למשקיע: בשנים 1 ו-2, יתקבל בתום כל חודשיים סכום של 4,000 ש"ח. בשנים 3,4,5 יתקבל בתום כל רבעון סכום של 6,000 ש"ח. בשנה ה-6 יתקבל בתום כל חודש סכום של 2,000 ש"ח. בתום כל חצי שנה לאחר מכן, עד וכולל תום השנה ה-10, יתקבל בתום כל חודש סכום של 3,000 ש"ח.<br>
+                הנחת ריביות אפקטיביות שנתיות:
+                <table class="q-table">
+                    <tr><th>תקופה</th><th>ריבית</th></tr>
+                    <tr><td>שנה 1</td><td>8%</td></tr>
+                    <tr><td>שנה 2</td><td>5%</td></tr>
+                    <tr><td>שנים 3-5</td><td>6%</td></tr>
+                    <tr><td>שנים 6-7</td><td>9%</td></tr>
+                    <tr><td>שנים 8-9</td><td>8%</td></tr>
+                    <tr><td>שנה 10</td><td>5%</td></tr>
+                </table>
+                <b>נדרש:</b> מהו הערך הנוכחי של התקבולים?
+            </div>
+            <div class="overflow-x-auto">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="row-header"></th>
+                            <th>שנה 1</th>
+                            <th>שנה 2</th>
+                            <th>שנים 3-5</th>
+                            <th>שנה 6</th>
+                            <th>שנה 7</th>
+                            <th>שנים 8-9</th>
+                            <th>שנה 10</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="row-header">Rate</td><td dir="ltr">0.012909</td><td dir="ltr">0.008165</td><td dir="ltr">0.014674</td><td dir="ltr">0.007207</td><td dir="ltr">0.007207</td><td dir="ltr">0.006434</td><td dir="ltr">0.004074</td></tr>
+                        <tr class="bg-slate-50"><td class="row-header">Nper</td><td dir="ltr">6</td><td dir="ltr">6</td><td dir="ltr">12</td><td dir="ltr">12</td><td dir="ltr">12</td><td dir="ltr">24</td><td dir="ltr">12</td></tr>
+                        <tr><td class="row-header">Pmt</td><td dir="ltr">4000</td><td dir="ltr">4000</td><td dir="ltr">6000</td><td dir="ltr">2000</td><td dir="ltr">3000</td><td dir="ltr">3000</td><td dir="ltr">3000</td></tr>
+                        <tr class="bg-slate-50"><td class="row-header">Fv</td><td dir="ltr">0</td><td dir="ltr">0</td><td dir="ltr">0</td><td dir="ltr">0</td><td dir="ltr">0</td><td dir="ltr">0</td><td dir="ltr">0</td></tr>
+                        <tr><td class="row-header">Pv (מועד תזרים)</td><td class="font-bold" dir="ltr">-22,959.04</td><td class="font-bold" dir="ltr">-23,328.02</td><td class="font-bold" dir="ltr">-65,658.07</td><td class="font-bold" dir="ltr">-22,916.32</td><td class="font-bold" dir="ltr">-34,374.48</td><td class="font-bold" dir="ltr">-66,419.64</td><td class="font-bold" dir="ltr">-35,073.12</td></tr>
+                        <tr class="bg-green-50"><td class="row-header text-green-900">Pv (מהוון ל-0)</td><td class="font-bold text-green-700" dir="ltr">-22,959.04</td><td class="font-bold text-green-700" dir="ltr">-21,600.02</td><td class="font-bold text-green-700" dir="ltr">-57,899.53</td><td class="font-bold text-green-700" dir="ltr">-17,002.39</td><td class="font-bold text-green-700" dir="ltr">-23,431.14</td><td class="font-bold text-green-700" dir="ltr">-41,565.41</td><td class="font-bold text-green-700" dir="ltr">-18,935.53</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="alt-interp">
+                * פרשנות חלופית: אם התשלום בשנים 7-10 מפורש כפעם בחצי שנה (ולא חודשי), ה-PV הכולל הנו <b dir="ltr">133,270.94</b>.
+            </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="mb-12">
+            <h3 class="text-xl font-bold bg-blue-800 text-white p-2 rounded-t">שאלה מס' 3 (12.5 נק')</h3>
+            <div class="question-box">
+                אדם נטל הלוואה בסך 150,000 ש"ח לתקופה של 13 שנים. ההלוואה מסולקת בתשלומים חודשיים שווים (גישת "לוח שפיצר"). הריבית השנתית בהלוואה היא ריבית שנתית אפקטיבית בשיעור 14%.<br>
+                <br><b>נדרש:</b><br>
+                א. מהו התשלום החודשי הקבוע בהלוואה?<br>
+                ב. מהם סך תשלומי הריבית בהלוואה לאורך כל תקופת ההלוואה?
+            </div>
+            <div class="overflow-x-auto">
+                <table style="width: auto; min-width: 400px;">
+                    <thead>
+                        <tr>
+                            <th class="row-header"></th>
+                            <th>חישוב הלוואה</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="row-header">Rate</td><td dir="ltr">0.010979</td></tr>
+                        <tr class="bg-slate-50"><td class="row-header">Nper</td><td dir="ltr">156</td></tr>
+                        <tr><td class="row-header">Pv</td><td dir="ltr">150000</td></tr>
+                        <tr class="bg-slate-50"><td class="row-header">Fv</td><td dir="ltr">0</td></tr>
+                        <tr><td class="row-header text-red-900">Pmt</td><td class="font-bold text-red-600" dir="ltr">-2,013.81</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="mb-12">
+            <h3 class="text-xl font-bold bg-blue-800 text-white p-2 rounded-t">שאלה מס' 4 (12.5 נק')</h3>
+            <div class="question-box">
+                משה מעוניין לרכוש מוצר. מחיר המוצר לפי הקטלוג באתר הוא 10,000 ש"ח. יחד עם זאת, נרשם שם כי "בעסקה שבה משולם במזומן, תינתן הנחה בסך 700 ש"ח לרוכשי מוצר זה". כאשר רוכשים את המוצר בתשלומים, יש לשלם 1,000 ש"ח בתום כל חודש, במשך 10 חודשים.<br>
+                <br><b>נדרש:</b> מהי הריבית האפקטיבית השנתית בעסקה שאותה מציע המוכר?
+            </div>
+            <div class="overflow-x-auto">
+                <table style="width: auto; min-width: 400px;">
+                    <thead>
+                        <tr>
+                            <th class="row-header"></th>
+                            <th>עסקת תשלומים</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="row-header">Nper</td><td dir="ltr">10</td></tr>
+                        <tr class="bg-slate-50"><td class="row-header">Pmt</td><td dir="ltr">-1000</td></tr>
+                        <tr><td class="row-header">Pv</td><td dir="ltr">9300</td></tr>
+                        <tr class="bg-slate-50"><td class="row-header">Fv</td><td dir="ltr">0</td></tr>
+                        <tr><td class="row-header text-blue-900">Rate (חודשי)</td><td class="font-bold text-blue-700" dir="ltr">0.013465</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="mb-12">
+            <h3 class="text-xl font-bold bg-blue-800 text-white p-2 rounded-t">שאלה מס' 5 (12.5 נק')</h3>
+            <div class="question-box">
+                אתם מעוניינים לקנות היום מוצר, ובאפשרותכם לשלם בעדו באחד מבין המסלולים הבאים:<br>
+                <table class="q-table">
+                    <tr><th>מסלול</th><th>פירוט תשלומים</th></tr>
+                    <tr><td>מסלול 1</td><td>לשלם במזומן 22,000 ש"ח.</td></tr>
+                    <tr><td>מסלול 2</td><td>לשלם בתום כל חודש במשך שנתיים סכום של 1,000 ש"ח.</td></tr>
+                    <tr><td>מסלול 3</td><td>לשלם בתום כל חצי שנה במשך 4 שנים סכום של 4,500 ש"ח.</td></tr>
+                    <tr><td>מסלול 4</td><td>לשלם בתום כל חודש במשך שנה סכום של 2,000 ש"ח, במשך 13 חודשים, אך התשלום הראשון הוא רק בעוד שנתיים.</td></tr>
+                </table>
+                נתון כי הריבית השנתית היא 5%.<br>
+                <br><b>נדרש:</b><br>
+                א. חשבו את הערך הנוכחי של כל אחת מהחלופות.<br>
+                ב. מהי החלופה שתועדף על ידכם? נמקו.
+            </div>
+            <div class="overflow-x-auto">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="row-header"></th>
+                            <th>חלופה 1</th>
+                            <th>חלופה 2</th>
+                            <th>חלופה 3</th>
+                            <th>חלופה 4 (לפני היוון כפול)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="row-header">Rate</td><td dir="ltr">0</td><td dir="ltr">0.004074</td><td dir="ltr">0.024695</td><td dir="ltr">0.004074</td></tr>
+                        <tr class="bg-slate-50"><td class="row-header">Nper</td><td dir="ltr">0</td><td dir="ltr">24</td><td dir="ltr">8</td><td dir="ltr">13</td></tr>
+                        <tr><td class="row-header">Pmt</td><td dir="ltr">0</td><td dir="ltr">-1000</td><td dir="ltr">-4500</td><td dir="ltr">-2000</td></tr>
+                        <tr class="bg-slate-50"><td class="row-header">Fv</td><td dir="ltr">0</td><td dir="ltr">0</td><td dir="ltr">0</td><td dir="ltr">0</td></tr>
+                        <tr><td class="row-header text-green-900">Pv (ערך נוכחי)</td><td class="font-bold text-green-700 text-lg" dir="ltr">22,000.00</td><td class="font-bold text-green-700" dir="ltr">22,810.15</td><td class="font-bold text-green-700" dir="ltr">32,306.94</td><td class="font-bold text-green-700" dir="ltr">23,068.79</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="alt-interp">
+                * פרשנות חלופית: אם מסלול 4 מפורש כ-12 חודשים ("במשך שנה") הערך הנוכחי יורד ל- <b dir="ltr">21,322.95</b>, והוא הופך לחלופה הזולה והמועדפת ביותר.
+            </div>
+        </div>
+
+        <!-- Question 6 -->
+        <div class="mb-12">
+            <h3 class="text-xl font-bold bg-blue-800 text-white p-2 rounded-t">שאלה מס' 6 (12.5 נק')</h3>
+            <div class="question-box">
+                שי בן 43 היום. בכוונתו לצאת לפנסיה בגיל 67, ולאחר פרישתו למשוך בתום כל חודש, עד גיל 120, סכום חודשי של 15,000 ש"ח. לשם כך, בכוונתו להפקיד בתום כל חודש סכום קבוע עד הפרישה. הניחו ריבית שנתית 6%.<br>
+                <br><b>נדרש:</b> מהו סכום ההפקדה החודשי הנדרש שיאפשר את מימון הקצבה?
+            </div>
+            <div class="overflow-x-auto">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="row-header"></th>
+                            <th>1. משיכות (גיל 67 עד 120)</th>
+                            <th>2. הפקדות (גיל 43 עד 67)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="row-header">Rate</td><td dir="ltr">0.004868</td><td dir="ltr">0.004868</td></tr>
+                        <tr class="bg-slate-50"><td class="row-header">Nper</td><td dir="ltr">636</td><td dir="ltr">288</td></tr>
+                        <tr><td class="row-header">Pv</td><td class="font-bold text-blue-700" dir="ltr">-2,941,128.60</td><td dir="ltr">0</td></tr>
+                        <tr class="bg-slate-50"><td class="row-header">Fv</td><td dir="ltr">0</td><td class="font-bold text-blue-700" dir="ltr">2,941,128.60</td></tr>
+                        <tr><td class="row-header text-green-900">Pmt</td><td class="font-bold" dir="ltr">15000</td><td class="font-bold text-green-700 text-lg" dir="ltr">-4,695.43</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Question 7 -->
+        <div class="mb-12">
+            <h3 class="text-xl font-bold bg-blue-800 text-white p-2 rounded-t">שאלה מס' 7 (12.5 נק')</h3>
+            <div class="question-box">
+                מציעים לד"ר מולה כהן להפקיד בפיקדון לתקופה של 7 שנים.<br>
+                <table class="q-table">
+                    <tr><th>מסלול</th><th>תנאי הריבית</th></tr>
+                    <tr><td>מסלול 1</td><td>ריבית 10% מחושבת כל 3 חודשים.</td></tr>
+                    <tr><td>מסלול 2</td><td>ריבית 3% חצי שנתית מחושבת כל חודשיים.</td></tr>
+                    <tr><td>מסלול 3</td><td>ריבית 77% ל-7 שנים, מחושבת כל שנה.</td></tr>
+                    <tr><td>מסלול 4</td><td>הלוואה שבה תתקבל ריבית מראש לכל 7 השנים בשיעור 60%.</td></tr>
+                </table>
+                <b>נדרש:</b><br>
+                א. חשבו את הריבית השנתית האפקטיבית בכל מסלול.<br>
+                ב. באיזו חלופה יבחר ד"ר כהן?
+            </div>
+            <div class="overflow-x-auto">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="row-header"></th>
+                            <th>מסלול 1</th>
+                            <th>מסלול 2</th>
+                            <th>מסלול 3</th>
+                            <th>מסלול 4</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="row-header">ריבית תקופתית</td><td dir="ltr">2.50%</td><td dir="ltr">1.00%</td><td dir="ltr">11.00%</td><td>-</td></tr>
+                        <tr class="bg-slate-50"><td class="row-header">תקופות בשנה (m)</td><td dir="ltr">4</td><td dir="ltr">6</td><td dir="ltr">1</td><td>-</td></tr>
+                        <tr><td class="row-header text-blue-900">EAR מחושב</td><td class="font-bold text-blue-700" dir="ltr">10.38%</td><td class="font-bold text-blue-700" dir="ltr">6.15%</td><td class="font-bold text-blue-700" dir="ltr">11.00%</td><td class="font-bold text-green-700 text-lg" dir="ltr">13.98%</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="alt-interp">
+                * פרשנות חלופית: אם ד"ר כהן הוא לוקח ההלוואה המבקש למזער עלויות, אזי <b>מסלול 2 יועדף</b> (<span dir="ltr">6.15%</span>).
+            </div>
+        </div>
+
+        <!-- Question 8 -->
+        <div class="mb-12">
+            <h3 class="text-xl font-bold bg-blue-800 text-white p-2 rounded-t">שאלה מס' 8 (12.5 נק')</h3>
+            <div class="question-box">
+                לפניכם תזרימי המזומנים של שני פרויקטים (א' ו-ב'):<br>
+                <table class="q-table">
+                    <thead>
+                        <tr><th>שנה</th><th>פרויקט א'</th><th>פרויקט ב'</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>0</td><td dir="ltr">-100</td><td dir="ltr">-500</td></tr>
+                        <tr><td>1</td><td>40</td><td>180</td></tr>
+                        <tr><td>2</td><td>40</td><td>180</td></tr>
+                        <tr><td>3</td><td>40</td><td>180</td></tr>
+                        <tr><td>4</td><td>40</td><td>180</td></tr>
+                        <tr><td>5</td><td>80</td><td>360</td></tr>
+                    </tbody>
+                </table>
+                <b>נדרש:</b><br>
+                א. חשבו את ה-NPV של כל פרויקט.<br>
+                ב. חשבו את ה-IRR של כל פרויקט והחליטו איזה פרויקט כדאי לבצע על בסיס מדד זה.<br>
+                ג. האם תיתכן סתירה בין NPV ל-IRR במקרה זה? נמקו.
+            </div>
+            <div class="overflow-x-auto">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="row-header"></th>
+                            <th>פרויקט א'</th>
+                            <th>פרויקט ב'</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="row-header">CF0</td><td dir="ltr">-100</td><td dir="ltr">-500</td></tr>
+                        <tr class="bg-slate-50"><td class="row-header">CF1-CF4</td><td dir="ltr">40</td><td dir="ltr">180</td></tr>
+                        <tr><td class="row-header">CF5</td><td dir="ltr">80</td><td dir="ltr">360</td></tr>
+                        <tr class="bg-blue-50"><td class="row-header text-blue-900">IRR מחושב</td><td class="font-bold text-blue-700 text-lg" dir="ltr">31.84%</td><td class="font-bold text-blue-700 text-lg" dir="ltr">28.64%</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Question 9 -->
+        <div class="mb-12">
+            <h3 class="text-xl font-bold bg-blue-800 text-white p-2 rounded-t">שאלה מס' 9 (12.5 נק')</h3>
+            <div class="question-box">
+                חברה שוקלת לבצע פרויקט. להלן הנתונים הנוספים שנאמדו לגבי הפרויקט:<br>
+                א. משך הפרויקט 4 שנים.<br>
+                ב. הפרויקט ידרוש השקעה בציוד בעלות של 400,000 ש"ח. הציוד מופחת לצרכי מס על פני 4 שנים. בסיום הפרויקט מכירת הציוד צפויה בתמורה ל-80,000 ש"ח.<br>
+                ג. הפרויקט ידרוש עלויות שנתיות שוטפות נוספות בסכום של 33,000 ש"ח לשנה.<br>
+                ד. הפרויקט יתרום להגדלת ההכנסות השנתיות מפרויקטים אחרים, בסכום של 110,000 ש"ח לשנה.<br>
+                ה. ההכנסות השנתיות מהפרויקט הספציפי צפויות להסתכם ב-300,000 ש"ח לשנה בשנתיים הראשונות, ו-400,000 ש"ח לשנה בכל אחת מהשנתיים לאחר מכן.<br>
+                ו. הפרויקט ידרוש השקעה בהון חוזר בסכום של 190,000 ש"ח.<br>
+                ז. החברה כפופה למס חברות בשיעור 25%, למס רווחי הון בשיעור 20%, ומחיר ההון שלה 10%.<br>
+                <br><b>נדרש:</b> חשבו את הערך הנוכחי הנקי (NPV) של הפרויקט, וקבעו האם כדאי לבצעו.
+            </div>
+            <div class="overflow-x-auto">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="row-header"></th>
+                            <th>0</th>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                            <th>4</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="row-header">השקעה</td><td class="font-bold text-red-600" dir="ltr">-400,000</td><td></td><td></td><td></td><td></td></tr>
+                        <tr class="bg-slate-50"><td class="row-header">הון חוזר</td><td class="font-bold text-red-600" dir="ltr">-190,000</td><td></td><td></td><td></td><td class="font-bold text-green-600" dir="ltr">190,000</td></tr>
+                        <tr><td class="row-header">רווח לפני מס פרויקט וסינרגיה</td><td></td><td dir="ltr">410,000</td><td dir="ltr">410,000</td><td dir="ltr">510,000</td><td dir="ltr">510,000</td></tr>
+                        <tr class="bg-slate-50"><td class="row-header">עלויות שוטפות</td><td></td><td class="text-red-600" dir="ltr">-33,000</td><td class="text-red-600" dir="ltr">-33,000</td><td class="text-red-600" dir="ltr">-33,000</td><td class="text-red-600" dir="ltr">-33,000</td></tr>
+                        <tr><td class="row-header">מגן מס (פחת)</td><td></td><td dir="ltr">25,000</td><td dir="ltr">25,000</td><td dir="ltr">25,000</td><td dir="ltr">25,000</td></tr>
+                        <tr class="bg-slate-50"><td class="row-header">מס חברות בגין רווח</td><td></td><td class="text-red-600" dir="ltr">-94,250</td><td class="text-red-600" dir="ltr">-94,250</td><td class="text-red-600" dir="ltr">-119,250</td><td class="text-red-600" dir="ltr">-119,250</td></tr>
+                        <tr><td class="row-header">ערך שייר אחרי מס הון</td><td></td><td></td><td></td><td></td><td class="font-bold text-green-600" dir="ltr">64,000</td></tr>
+                        <tr class="bg-blue-100 font-bold border-y-2 border-blue-300">
+                            <td class="row-header">סך תזרים חופשי (FCF)</td>
+                            <td class="text-red-700" dir="ltr">-590,000</td>
+                            <td dir="ltr">307,750</td>
+                            <td dir="ltr">307,750</td>
+                            <td dir="ltr">382,750</td>
+                            <td dir="ltr">636,750</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function exportToExcel() {
+            var htmlData = document.getElementById("main-content").innerHTML;
+            
+            // Remove the export button and print button from the Excel output
+            htmlData = htmlData.replace(/<div class="flex flex-col sm:flex-row gap-3 no-print">[\s\S]*?<\/div>/gi, "");
+
+            var excelStyle = `
+                <style>
+                    body { font-family: 'Segoe UI', Tahoma, Arial, sans-serif; direction: rtl; text-align: right; background-color: white;}
+                    table { border-collapse: collapse; width: 100%; margin-bottom: 25px; }
+                    th { background-color: #cbd5e1; color: #1e293b; font-weight: bold; border: 1px solid #94a3b8; padding: 6px; text-align: center; }
+                    .row-header { background-color: #e2e8f0; font-family: 'Courier New', Courier, monospace; font-weight: bold; text-align: right; width: 150px; border: 1px solid #94a3b8; padding: 6px;}
+                    td { border: 1px solid #cbd5e1; padding: 6px; text-align: center; mso-number-format: "General"; }
+                    h2, h3 { color: #1e3a8a; margin-top: 20px; }
+                    .question-box { background-color: #f8fafc; border: 1px dotted #ccc; padding: 10px; margin-bottom: 10px; font-style: italic;}
+                    .q-table { width: auto; border-collapse: collapse; margin: 10px 0; background: white; font-style: normal; }
+                    .q-table th, .q-table td { border: 1px solid #cbd5e1; padding: 4px 12px; text-align: center; color: #0f172a; }
+                    .q-table th { background-color: #f1f5f9; font-weight: bold; }
+                    .alt-interp { color: #92400e; font-weight: bold; }
+                </style>
+            `;
+
+            var template = `
+            <html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
+            <head>
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+                <!--[if gte mso 9]>
+                <xml>
+                    <x:ExcelWorkbook>
+                        <x:ExcelWorksheets>
+                            <x:ExcelWorksheet>
+                                <x:Name>פתרון מחשבון פיננסי</x:Name>
+                                <x:WorksheetOptions>
+                                    <x:DisplayRightToLeft/>
+                                </x:WorksheetOptions>
+                            </x:ExcelWorksheet>
+                        </x:ExcelWorksheets>
+                    </x:ExcelWorkbook>
+                </xml>
+                <![endif]-->
+                ${excelStyle}
+            </head>
+            <body>
+                ${htmlData}
+            </body>
+            </html>`;
+
+            var blob = new Blob(['\uFEFF' + template], { type: 'application/vnd.ms-excel;charset=utf-8' });
+            var url = window.URL.createObjectURL(blob);
+            var a = document.createElement("a");
+            a.href = url;
+            a.download = "Moed_B_Financial_Columns_Layout.xls";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+    </script>
+</body>
+</html>
